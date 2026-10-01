@@ -1,0 +1,659 @@
+[
+  {
+    "id": "dora",
+    "name": "Dora the Explorer",
+    "year": 2000,
+    "debut": "Nick Jr. series",
+    "src": {
+      "wiki": "dora",
+      "file": "File:Dora hq.png"
+    },
+    "img": "dora.webp",
+    "hd": "dora.webp",
+    "cutout": true,
+    "w": 716,
+    "h": 1088
+  },
+  {
+    "id": "shrek",
+    "name": "Shrek",
+    "year": 2001,
+    "debut": "Shrek (2001)",
+    "src": {
+      "wiki": "shrek",
+      "file": "File:GoodShrekImage.png"
+    },
+    "img": "shrek.webp",
+    "hd": "shrek.webp",
+    "cutout": true,
+    "w": 715,
+    "h": 1088
+  },
+  {
+    "id": "mike",
+    "name": "Mike Wazowski",
+    "year": 2001,
+    "debut": "Monsters, Inc.",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/pixar/images/9/96/MikeMAW.png"
+    },
+    "img": "mike.webp",
+    "hd": "mike.webp",
+    "cutout": true,
+    "w": 1088,
+    "h": 1045
+  },
+  {
+    "id": "sulley",
+    "name": "Sulley",
+    "year": 2001,
+    "debut": "Monsters, Inc.",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/pixar/images/e/e7/SulleyMAW.png"
+    },
+    "img": "sulley.webp",
+    "hd": "sulley.webp",
+    "cutout": true,
+    "w": 836,
+    "h": 1088
+  },
+  {
+    "id": "stitch",
+    "name": "Stitch",
+    "year": 2002,
+    "debut": "Lilo & Stitch",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/b/b7/Profile_-_Stitch.jpg"
+    },
+    "img": "stitch.webp",
+    "hd": "stitch.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 990
+  },
+  {
+    "id": "puss",
+    "name": "Puss in Boots",
+    "year": 2004,
+    "debut": "Shrek 2",
+    "src": {
+      "wiki": "shrek",
+      "file": "File:Puss-in-Boots-image-movie-7.jpg"
+    },
+    "knockout": true,
+    "img": "puss.png",
+    "hd": "puss.webp",
+    "cutout": true,
+    "w": 954,
+    "h": 1088
+  },
+  {
+    "id": "peppa",
+    "name": "Peppa Pig",
+    "year": 2004,
+    "debut": "Peppa Pig (TV series)",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/peppapig/images/6/61/Peppa_Pig.png"
+    },
+    "img": "peppa.webp",
+    "hd": "peppa.webp",
+    "cutout": true,
+    "w": 842,
+    "h": 1088
+  },
+  {
+    "id": "ben10",
+    "name": "Ben 10",
+    "year": 2005,
+    "debut": "Cartoon Network series",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/ben10/images/9/9f/Ben_OV_crop.png"
+    },
+    "img": "ben10.webp",
+    "hd": "ben10.webp",
+    "cutout": true,
+    "w": 360,
+    "h": 1088
+  },
+  {
+    "id": "mcqueen",
+    "name": "Lightning McQueen",
+    "year": 2006,
+    "debut": "Cars",
+    "src": {
+      "wiki": "pixar",
+      "file": "File:Lighting McQueen.png"
+    },
+    "img": "mcqueen.webp",
+    "hd": "mcqueen.webp",
+    "cutout": true,
+    "w": 1088,
+    "h": 634
+  },
+  {
+    "id": "mater",
+    "name": "Mater",
+    "year": 2006,
+    "debut": "Cars",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/pixar/images/9/9d/Tow_Mater.png"
+    },
+    "img": "mater.webp",
+    "hd": "mater.webp",
+    "cutout": true,
+    "w": 1088,
+    "h": 785
+  },
+  {
+    "id": "walle",
+    "name": "WALL-E",
+    "year": 2008,
+    "debut": "WALL-E",
+    "src": {
+      "wiki": "disney",
+      "file": "File:Wall-E.png"
+    },
+    "img": "walle.webp",
+    "hd": "walle.webp",
+    "cutout": true,
+    "w": 1088,
+    "h": 1032
+  },
+  {
+    "id": "po",
+    "name": "Po",
+    "year": 2008,
+    "debut": "Kung Fu Panda",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/kungfupanda/images/7/73/KFP3-promo-po4.jpg"
+    },
+    "knockout": true,
+    "img": "po.png",
+    "hd": "po.webp",
+    "cutout": true,
+    "w": 706,
+    "h": 1088
+  },
+  {
+    "id": "hiccup",
+    "name": "Hiccup",
+    "year": 2010,
+    "debut": "How to Train Your Dragon",
+    "src": {
+      "wiki": "dreamworks",
+      "file": "File:Hiccup_Profile.jpg"
+    },
+    "img": "hiccup.webp",
+    "hd": "hiccup.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 999
+  },
+  {
+    "id": "toothless",
+    "name": "Toothless",
+    "year": 2010,
+    "debut": "How to Train Your Dragon",
+    "src": {
+      "wiki": "dreamworks",
+      "file": "File:Toothless render 2.png"
+    },
+    "img": "toothless.webp",
+    "hd": "toothless.webp",
+    "cutout": true,
+    "w": 1088,
+    "h": 632
+  },
+  {
+    "id": "minions",
+    "name": "Minions",
+    "year": 2010,
+    "debut": "Despicable Me",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/despicableme/images/f/f0/DM3_Minions_.jpg"
+    },
+    "knockout": true,
+    "img": "minions.png",
+    "hd": "minions.webp",
+    "cutout": true,
+    "w": 882,
+    "h": 1088
+  },
+  {
+    "id": "gru",
+    "name": "Gru",
+    "year": 2010,
+    "debut": "Despicable Me",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/despicableme/images/e/e3/Gru_DM4.webp"
+    },
+    "img": "gru.webp",
+    "hd": "gru.webp",
+    "cutout": true,
+    "w": 523,
+    "h": 1088
+  },
+  {
+    "id": "finn",
+    "name": "Finn the Human",
+    "year": 2010,
+    "debut": "Adventure Time",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/adventuretimewithfinnandjake/images/f/f3/Original_Finn.png"
+    },
+    "img": "finn.webp",
+    "hd": "finn.webp",
+    "cutout": true,
+    "w": 703,
+    "h": 1088
+  },
+  {
+    "id": "jake",
+    "name": "Jake the Dog",
+    "year": 2010,
+    "debut": "Adventure Time",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/adventuretimewithfinnandjake/images/3/3b/Jakesalad.png"
+    },
+    "img": "jake.webp",
+    "hd": "jake.webp",
+    "cutout": true,
+    "w": 781,
+    "h": 1088
+  },
+  {
+    "id": "rapunzel",
+    "name": "Rapunzel",
+    "year": 2010,
+    "debut": "Tangled",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/a/ae/Profile_-_Rapunzel.jpeg"
+    },
+    "img": "rapunzel.webp",
+    "hd": "rapunzel.jpg",
+    "cutout": false,
+    "w": 593,
+    "h": 1000
+  },
+  {
+    "id": "merida",
+    "name": "Merida",
+    "year": 2012,
+    "debut": "Brave",
+    "src": {
+      "wiki": "disney",
+      "file": "File:Profile - Merida.jpeg"
+    },
+    "img": "merida.webp",
+    "hd": "merida.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 829
+  },
+  {
+    "id": "ralph",
+    "name": "Ralph",
+    "year": 2012,
+    "debut": "Wreck-It Ralph",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/e/e2/Profile_-_Wreck_It_Ralph.jpeg"
+    },
+    "img": "ralph.webp",
+    "hd": "ralph.jpg",
+    "cutout": false,
+    "w": 947,
+    "h": 1000
+  },
+  {
+    "id": "vanellope",
+    "name": "Vanellope",
+    "year": 2012,
+    "debut": "Wreck-It Ralph",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/2/25/Profile_-_Vanellope_Von_schweetz.jpeg"
+    },
+    "img": "vanellope.webp",
+    "hd": "vanellope.jpg",
+    "cutout": false,
+    "w": 835,
+    "h": 1000
+  },
+  {
+    "id": "mavis",
+    "name": "Mavis Dracula",
+    "year": 2012,
+    "debut": "Hotel Transylvania",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/hoteltransylvania/images/6/6f/Mavis.jpg"
+    },
+    "img": "mavis.webp",
+    "hd": "mavis.jpg",
+    "cutout": false,
+    "w": 658,
+    "h": 1000
+  },
+  {
+    "id": "elsa",
+    "name": "Elsa",
+    "year": 2013,
+    "debut": "Frozen",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/9/95/Profile_-_Elsa.jpeg"
+    },
+    "img": "elsa.webp",
+    "hd": "elsa.jpg",
+    "cutout": false,
+    "w": 906,
+    "h": 1000
+  },
+  {
+    "id": "anna",
+    "name": "Anna",
+    "year": 2013,
+    "debut": "Frozen",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/0/0f/Profile_-_Anna.jpeg"
+    },
+    "img": "anna.webp",
+    "hd": "anna.jpg",
+    "cutout": false,
+    "w": 875,
+    "h": 1000
+  },
+  {
+    "id": "olaf",
+    "name": "Olaf",
+    "year": 2013,
+    "debut": "Frozen",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/5/53/Profile_-_Olaf.jpeg"
+    },
+    "img": "olaf.webp",
+    "hd": "olaf.jpg",
+    "cutout": false,
+    "w": 811,
+    "h": 1000
+  },
+  {
+    "id": "baymax",
+    "name": "Baymax",
+    "year": 2014,
+    "debut": "Big Hero 6",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/d/d4/Profile_-_Baymax.jpeg"
+    },
+    "img": "baymax.webp",
+    "hd": "baymax.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 853
+  },
+  {
+    "id": "joy",
+    "name": "Joy",
+    "year": 2015,
+    "debut": "Inside Out",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/pixar/images/e/eb/Profile_-_Joy.png"
+    },
+    "img": "joy.webp",
+    "hd": "joy.jpg",
+    "cutout": false,
+    "w": 754,
+    "h": 1000
+  },
+  {
+    "id": "sadness",
+    "name": "Sadness",
+    "year": 2015,
+    "debut": "Inside Out",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/pixar/images/a/ad/Profile_-_Sadness.png"
+    },
+    "img": "sadness.webp",
+    "hd": "sadness.jpg",
+    "cutout": false,
+    "w": 925,
+    "h": 1000
+  },
+  {
+    "id": "ladybug",
+    "name": "Ladybug",
+    "year": 2015,
+    "debut": "Miraculous: Tales of Ladybug & Cat Noir",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/lady-bug/images/5/58/Ladybug_%28S6%29_Square.png"
+    },
+    "img": "ladybug.webp",
+    "hd": "ladybug.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 1000
+  },
+  {
+    "id": "catnoir",
+    "name": "Cat Noir",
+    "year": 2015,
+    "debut": "Miraculous: Tales of Ladybug & Cat Noir",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/lady-bug/images/c/c1/Cat_Noir_%28S6%29_Square.png"
+    },
+    "img": "catnoir.webp",
+    "hd": "catnoir.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 1000
+  },
+  {
+    "id": "moana",
+    "name": "Moana",
+    "year": 2016,
+    "debut": "Moana",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/7/7d/Profile_-_Moana.png"
+    },
+    "img": "moana.webp",
+    "hd": "moana.jpg",
+    "cutout": false,
+    "w": 761,
+    "h": 1000
+  },
+  {
+    "id": "judy",
+    "name": "Judy Hopps",
+    "year": 2016,
+    "debut": "Zootopia",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/d/da/Profile_-_Judy_Hopps.jpeg"
+    },
+    "img": "judy.webp",
+    "hd": "judy.jpg",
+    "cutout": false,
+    "w": 750,
+    "h": 1000
+  },
+  {
+    "id": "nick",
+    "name": "Nick Wilde",
+    "year": 2016,
+    "debut": "Zootopia",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/5/50/Profile_-_Nick_Wilde.jpeg"
+    },
+    "img": "nick.webp",
+    "hd": "nick.jpg",
+    "cutout": false,
+    "w": 669,
+    "h": 1000
+  },
+  {
+    "id": "miguel",
+    "name": "Miguel Rivera",
+    "year": 2017,
+    "debut": "Coco",
+    "src": {
+      "wiki": "disney",
+      "file": "File:Profile - Miguel Rivera.jpg"
+    },
+    "img": "miguel.webp",
+    "hd": "miguel.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 985
+  },
+  {
+    "id": "miles",
+    "name": "Miles Morales",
+    "year": 2018,
+    "debut": "Spider-Man: Into the Spider-Verse",
+    "src": {
+      "wiki": "spiderman-films",
+      "file": "File:Spider-Man-Into-The-Spider-Verse-Miles-Morales-Poster.jpg"
+    },
+    "img": "miles.webp",
+    "hd": "miles.jpg",
+    "cutout": false,
+    "w": 658,
+    "h": 1000
+  },
+  {
+    "id": "bluey",
+    "name": "Bluey",
+    "year": 2018,
+    "debut": "Bluey (TV series)",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/blueypedia/images/3/3e/Bluey-Celebrating.png"
+    },
+    "img": "bluey.webp",
+    "hd": "bluey.webp",
+    "cutout": true,
+    "w": 772,
+    "h": 1088
+  },
+  {
+    "id": "bingo",
+    "name": "Bingo",
+    "year": 2018,
+    "debut": "Bluey (TV series)",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/blueypedia/images/2/27/Bingo_Website.png"
+    },
+    "img": "bingo.webp",
+    "hd": "bingo.webp",
+    "cutout": true,
+    "w": 729,
+    "h": 1088
+  },
+  {
+    "id": "mirabel",
+    "name": "Mirabel Madrigal",
+    "year": 2021,
+    "debut": "Encanto",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/2/2e/Profile_-_Mirabel_Madrigal.png"
+    },
+    "img": "mirabel.webp",
+    "hd": "mirabel.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 867
+  },
+  {
+    "id": "bruno",
+    "name": "Bruno Madrigal",
+    "year": 2021,
+    "debut": "Encanto",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/3/33/Profile_-_Bruno_Madrigal.png"
+    },
+    "img": "bruno.webp",
+    "hd": "bruno.jpg",
+    "cutout": false,
+    "w": 970,
+    "h": 1000
+  },
+  {
+    "id": "luca",
+    "name": "Luca Paguro",
+    "year": 2021,
+    "debut": "Luca",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/pixar/images/9/9e/Luca_Paguro_.png"
+    },
+    "img": "luca.webp",
+    "hd": "luca.webp",
+    "cutout": true,
+    "w": 567,
+    "h": 1088
+  },
+  {
+    "id": "mei",
+    "name": "Mei Lee",
+    "year": 2022,
+    "debut": "Turning Red",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/pixar/images/5/53/Mei_Lee.png"
+    },
+    "img": "mei.webp",
+    "hd": "mei.jpg",
+    "cutout": false,
+    "w": 983,
+    "h": 1000
+  },
+  {
+    "id": "pusslw",
+    "name": "Puss in Boots (Last Wish)",
+    "year": 2022,
+    "debut": "Puss in Boots: The Last Wish",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/dreamworks/images/2/27/Puss_in_Boots_Profile.jpg"
+    },
+    "img": "pusslw.webp",
+    "hd": "pusslw.jpg",
+    "cutout": false,
+    "w": 957,
+    "h": 1000
+  },
+  {
+    "id": "ruby",
+    "name": "Ruby Gillman",
+    "year": 2023,
+    "debut": "Ruby Gillman, Teenage Kraken",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/dreamworks/images/7/7f/Ruby_Gillman_Profile.jpg"
+    },
+    "img": "ruby.webp",
+    "hd": "ruby.jpg",
+    "cutout": false,
+    "w": 1000,
+    "h": 1000
+  },
+  {
+    "id": "asha",
+    "name": "Asha",
+    "year": 2023,
+    "debut": "Wish",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/disney/images/4/40/Profile_-_Asha.jpg"
+    },
+    "img": "asha.webp",
+    "hd": "asha.jpg",
+    "cutout": false,
+    "w": 619,
+    "h": 1000
+  },
+  {
+    "id": "ember",
+    "name": "Ember Lumen",
+    "year": 2023,
+    "debut": "Elemental",
+    "src": {
+      "url": "https://static.wikia.nocookie.net/pixar/images/3/36/Profile_-_Ember_Lumen.png"
+    },
+    "img": "ember.webp",
+    "hd": "ember.jpg",
+    "cutout": false,
+    "w": 743,
+    "h": 1000
+  }
+]

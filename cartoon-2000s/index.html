@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartoon Icons 2000–2023</title>
+<style>
+@font-face{font-family:"Fredoka";src:url("fonts/fredoka-latin-wght-normal.woff2") format("woff2");font-weight:300 700;font-display:block}
+:root{--ink:#1b1036}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;margin:-540px 0 0 -960px;overflow:hidden;font-family:"Fredoka",system-ui,sans-serif;color:#fff;background:#240046;transform-origin:50% 50%;-webkit-font-smoothing:antialiased}
+.L{position:absolute;inset:0}
+.tx{color:#fff;-webkit-text-stroke:14px var(--ink);paint-order:stroke fill;font-weight:700;letter-spacing:.01em;white-space:nowrap}
+img{display:block}
+
+/* background */
+.bg{position:absolute;inset:0}
+.rays{position:absolute;left:50%;top:0;width:3000px;height:3000px;margin:-1500px 0 0 -1500px;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.11) 0deg 8deg,rgba(255,255,255,0) 8deg 20deg);-webkit-mask-image:radial-gradient(closest-side,#000 18%,transparent 72%);mask-image:radial-gradient(closest-side,#000 18%,transparent 72%)}
+#dots{background-image:radial-gradient(rgba(255,255,255,.13) 3px,transparent 3.6px);background-size:30px 30px;-webkit-mask-image:linear-gradient(115deg,transparent 55%,#000 100%);mask-image:linear-gradient(115deg,transparent 55%,#000 100%)}
+#vig{background:radial-gradient(ellipse 75% 75% at 50% 45%,transparent 55%,rgba(10,0,30,.45))}
+#grain{mix-blend-mode:overlay;pointer-events:none;background-size:512px 512px}
+
+/* side panels */
+#left{position:absolute;left:80px;top:250px;width:360px}
+#ldec{font-size:104px;line-height:1;-webkit-text-stroke:12px var(--ink)}
+#lera{margin-top:14px;font-size:30px;font-weight:600;line-height:1.15;white-space:normal;-webkit-text-stroke:8px var(--ink)}
+#ldots{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;width:300px}
+#ldots i{width:20px;height:20px;border-radius:50%;border:4px solid var(--ink);background:rgba(255,255,255,.35)}
+#ldots i.on{background:var(--acc)}
+#ldots i.cur{background:#fff;transform:scale(1.35)}
+#right{position:absolute;left:1500px;top:230px;width:350px}
+#cnt{font-size:120px;line-height:1}
+#cnt span{font-size:46px}
+#age{position:relative;width:210px;height:210px;margin-top:22px}
+#age svg{position:absolute;inset:0;width:100%;height:100%}
+#age .v{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink);font-weight:700}
+#age .v b{font-size:76px;line-height:.9}
+#age .v span{font-size:24px;letter-spacing:.08em}
+#debut{margin-top:24px}
+#debut span{display:inline-block;background:var(--ink);color:var(--acc);font-size:20px;font-weight:700;letter-spacing:.14em;padding:5px 14px;border-radius:999px}
+#debut p{margin-top:12px;font-size:32px;font-weight:600;line-height:1.15;white-space:normal;-webkit-text-stroke:9px var(--ink)}
+
+/* character cards */
+.char{position:absolute;left:960px;top:385px;width:0;height:0}
+.art{position:absolute;transform-origin:50% 85%}
+.art img{width:100%;height:100%}
+.art.framed{background:#fff;padding:14px;border-radius:30px;box-shadow:0 0 0 6px var(--ink),14px 18px 0 6px rgba(20,8,40,.35)}
+.art.framed img{border-radius:18px;object-fit:cover}
+.art.duo{display:flex;align-items:flex-end;gap:0}
+.art.duo img{width:auto}
+.ring{position:absolute;left:-330px;top:-330px;width:660px;height:660px;border-radius:50%;border:16px solid var(--acc)}
+.name{position:absolute;left:960px;top:735px;height:0;display:flex;justify-content:center;align-items:center;width:0}
+.name .in{font-size:96px;line-height:1;text-shadow:0 9px 0 var(--ink)}
+.name .ch{display:inline-block}
+
+/* year odometer */
+#year{position:absolute;left:960px;top:790px;display:flex;transform-origin:50% 50%}
+#year .col{position:relative;width:98px;height:170px;overflow:hidden}
+#year .strip{position:absolute;left:0;top:0;width:100%}
+#year .strip div{height:170px;display:flex;align-items:center;justify-content:center;font-size:164px;font-weight:700;color:var(--acc);-webkit-text-stroke:15px var(--ink);paint-order:stroke fill;text-shadow:0 10px 0 var(--ink)}
+
+/* decade cards */
+.dc{position:absolute;inset:0}
+.dc .rays{top:540px}
+.dyear{position:absolute;left:0;right:0;top:300px;text-align:center;font-size:330px;line-height:1;-webkit-text-stroke:22px var(--ink);text-shadow:0 10px 0 var(--ink),0 20px 0 var(--ink),0 30px 0 var(--ink),0 44px 40px rgba(0,0,0,.35)}
+.dera{position:absolute;left:0;right:0;top:690px;text-align:center;font-size:64px;-webkit-text-stroke:12px var(--ink)}
+.dcount{position:absolute;left:50%;top:800px;margin-left:-120px;width:240px;height:72px;border-radius:999px;background:var(--acc);border:6px solid var(--ink);color:var(--ink);font-size:36px;font-weight:700;display:flex;align-items:center;justify-content:center;letter-spacing:.06em;box-shadow:0 8px 0 var(--ink)}
+
+/* timeline */
+#timeline{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}
+#track{position:absolute;left:200px;top:1006px;width:1520px;height:14px;border-radius:7px;background:rgba(27,16,54,.55);box-shadow:0 0 0 4px var(--ink)}
+#fill{position:absolute;left:0;top:0;height:100%;border-radius:7px;background:linear-gradient(90deg,#ffd60a,#ff70a6,#4cc9f0)}
+.tick{position:absolute;top:1030px;width:80px;margin-left:-40px;text-align:center;font-size:22px;font-weight:700;color:#fff;-webkit-text-stroke:6px var(--ink);paint-order:stroke fill}
+.tdot{position:absolute;top:1006px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:rgba(255,255,255,.35);box-shadow:0 0 0 3px var(--ink)}
+.tdot.on{background:#fff}
+#marker{position:absolute;top:993px;width:40px;height:40px;margin-left:-20px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 6px var(--ink),0 0 30px 6px rgba(255,255,255,.55)}
+
+/* intro & outro */
+.pic{position:absolute;left:0;top:0}
+.pic img{width:100%;height:100%}
+.pic.framed{background:#fff;padding:8px;border-radius:18px;box-shadow:0 0 0 5px var(--ink),8px 10px 0 4px rgba(20,8,40,.35)}
+.pic.framed img{border-radius:10px;object-fit:cover}
+.tline{position:absolute;left:0;right:0;text-align:center}
+.tline .ch{display:inline-block}
+#t1{top:370px;font-size:96px;text-shadow:0 8px 0 var(--ink)}
+#t2{top:480px;font-size:138px;color:#ffd60a;-webkit-text-stroke:18px var(--ink);text-shadow:0 12px 0 var(--ink)}
+#t3{position:absolute;left:50%;top:668px;height:76px;padding:0 34px;border-radius:999px;background:#fff;border:6px solid var(--ink);color:var(--ink);font-size:40px;font-weight:700;display:flex;align-items:center;white-space:nowrap;box-shadow:0 8px 0 var(--ink)}
+.tile{position:absolute;width:116px;height:116px;border-radius:22px;background:#fff;box-shadow:0 0 0 5px var(--ink),5px 7px 0 4px rgba(20,8,40,.4);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tile img{max-width:104px;max-height:104px;width:auto;height:auto}
+.tile b{position:absolute;right:6px;bottom:2px;font-size:17px;color:var(--ink);font-weight:700}
+#q1{top:742px;font-size:84px;color:#ffd60a;-webkit-text-stroke:15px var(--ink);text-shadow:0 9px 0 var(--ink)}
+#q2{position:absolute;left:0;right:0;top:850px;display:flex;justify-content:center;align-items:center;gap:16px;font-size:46px}
+#q2 img{width:64px;height:64px}
+#sub{position:absolute;left:50%;top:930px;height:96px;margin-left:-215px;width:430px;border-radius:999px;background:#ff1f3d;border:6px solid var(--ink);box-shadow:0 9px 0 var(--ink);display:flex;align-items:center;justify-content:center;gap:16px;font-size:46px;font-weight:700;letter-spacing:.04em;color:#fff}
+#sub img{width:58px;height:58px}
+#cursor{position:absolute;left:0;top:0;width:70px;height:84px}
+
+#fade{background:#000;pointer-events:none}
+#bar{position:fixed;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.08);cursor:pointer}
+#bar i{display:block;height:100%;width:0;background:#ffd60a}
+#hint{position:fixed;right:14px;bottom:12px;font:12px/1 ui-monospace,Menlo,monospace;color:rgba(255,255,255,.4)}
+.render #bar,.render #hint{display:none}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="world" class="L">
+    <div id="bgs" class="L"></div>
+    <div class="rays" id="rays"></div>
+    <div id="dots" class="L"></div>
+    <canvas id="confetti" class="L" width="1920" height="1080"></canvas>
+    <div id="vig" class="L"></div>
+    <div id="left"><div id="ldec" class="tx"></div><div id="lera" class="tx"></div><div id="ldots"></div></div>
+    <div id="right">
+      <div id="cnt" class="tx">#<b></b><span></span></div>
+      <div id="age"><svg viewBox="-100 -100 200 200"><polygon id="starpoly" fill="var(--acc2)" stroke="#1b1036" stroke-width="7" stroke-linejoin="round"/></svg><div class="v"><b></b><span>YEARS OLD</span></div></div>
+      <div id="debut"><span>DEBUT</span><p class="tx"></p></div>
+    </div>
+    <div id="cards" class="L"></div>
+    <canvas id="burst" class="L" width="1920" height="1080"></canvas>
+    <div id="names" class="L"></div>
+    <div id="year"></div>
+    <div id="intro" class="L"></div>
+    <div id="dcards" class="L"></div>
+    <div id="timeline"><div id="track"><div id="fill"></div></div><div id="marker"></div></div>
+    <div id="outro" class="L"></div>
+    <div id="grain" class="L"></div>
+  </div>
+  <div id="fade" class="L"></div>
+</div>
+<div id="bar"><i></i></div>
+<div id="hint">click ▶ sound · space · ← →</div>
+
+<script>
+"use strict";
+/* ───────────── timing ───────────── */
+const BPM = 112, BEAT = 60 / BPM, BAR = 4 * BEAT;   // one character per bar
+const THIS_YEAR = 2026;
+const Q = new URLSearchParams(location.search);
+const RENDER = Q.has("render");
+if (RENDER) document.documentElement.classList.add("render");
+
+const DECADES = [
+  { k: "2000s", era: "Ogres, monsters & cars",  bg: ["#ff006e", "#7b2cbf"], acc: "#ffbe0b", acc2: "#3a86ff", grain: 0 },
+  { k: "2010s", era: "Dragons, heroes & snow",  bg: ["#00b4d8", "#1e3a8a"], acc: "#ffd60a", acc2: "#ff70a6", grain: 0 },
+  { k: "2020s", era: "The new generation",      bg: ["#ff8500", "#c9184a"], acc: "#fff07c", acc2: "#4cc9f0", grain: 0 }
+];
+const Y0 = 1998, Y1 = 2025, FROM = 1990;   // timeline range; the odometer rolls up from FROM
+const INTRO_BG = { bg: ["#5a189a", "#1b0040"], acc: "#ffd60a", acc2: "#ff5d8f", grain: 0 };
+
+/* ───────────── math ───────────── */
+const clamp = (x, a = 0, b = 1) => x < a ? a : x > b ? b : x;
+const lerp = (a, b, x) => a + (b - a) * x;
+const E = {
+  lin: x => x,
+  outCubic: x => 1 - (1 - x) ** 3,
+  inCubic: x => x ** 3,
+  inOutCubic: x => x < .5 ? 4 * x ** 3 : 1 - (-2 * x + 2) ** 3 / 2,
+  inOutQuart: x => x < .5 ? 8 * x ** 4 : 1 - (-2 * x + 2) ** 4 / 2,
+  outExpo: x => x >= 1 ? 1 : 1 - 2 ** (-10 * x),
+  outBack: x => { const c = 1.9; return 1 + (c + 1) * (x - 1) ** 3 + c * (x - 1) ** 2; }
+};
+const P = (t, a, d, e = E.outCubic) => e(clamp((t - a) / d));
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let x = Math.imul(seed ^ seed >>> 15, 1 | seed); x = x + Math.imul(x ^ x >>> 7, 61 | x) ^ x; return ((x ^ x >>> 14) >>> 0) / 4294967296; }; }
+const $ = id => document.getElementById(id);
+const tf = (el, v) => { el.style.transform = v; };
+const show = (el, on) => { const d = on ? "" : "none"; if (el.style.display !== d) el.style.display = d; return on; };
+const setVars = (el, p) => { el.style.setProperty("--acc", p.acc); el.style.setProperty("--acc2", p.acc2); };
+const grad = p => `linear-gradient(135deg, ${p.bg[0]} 0%, ${p.bg[1]} 100%)`;
+function letters(el, text) {
+  el.innerHTML = [...text].map(c => `<span class="ch">${c === " " ? "&nbsp;" : c}</span>`).join("");
+  return [...el.children];
+}
+const yearX = y => 200 + (y - Y0) / (Y1 - Y0) * 1520;
+
+/* ───────────── build ───────────── */
+let CH = [], SEGS = [], OUTRO = 0, DUR = 0;
+const bgEls = [];
+
+function build() {
+  // segments: intro (2 bars) · per decade: title card + one bar per character · outro (3 bars)
+  let bar = 2, n = 0, prev = null;
+  DECADES.forEach((d, di) => {
+    d.i = di;
+    d.chars = CH.filter(c => `${Math.floor(c.year / 10) * 10}s` === d.k);
+    SEGS.push({ type: "dec", d, t0: bar++ * BAR });
+    d.chars.forEach((c, j) => {
+      const s = { type: "char", c, d, j, n: ++n, t0: bar++ * BAR, from: prev ? prev.c.year : FROM };
+      SEGS.push(s); prev = s;
+    });
+  });
+  OUTRO = bar * BAR; DUR = (bar + 3) * BAR;
+  SEGS.forEach((s, i) => { s.prev = SEGS[i - 1] || null; s.next = SEGS[i + 1] || null; });
+
+  // backgrounds
+  [INTRO_BG, ...DECADES].forEach(p => {
+    const el = document.createElement("div");
+    el.className = "bg"; el.style.background = grad(p); el.style.display = "none";
+    $("bgs").appendChild(el); bgEls.push(el);
+  });
+
+  // character cards + names
+  SEGS.filter(s => s.type === "char").forEach(s => {
+    const c = s.c, r = rng(s.n * 31);
+    s.tilt = (r() - .5) * 7;
+    const el = document.createElement("div");
+    el.className = "char"; el.style.display = "none";
+    let art;
+    if (c.hd2) {
+      const H = 600, w1 = c.w / c.h * H, w2 = c.w2 / c.h2 * H * .82, sc = Math.min(1, 900 / (w1 + w2));
+      art = `<div class="art duo" style="left:${-(w1 + w2) * sc / 2}px;top:${-H * sc / 2}px;width:${(w1 + w2) * sc}px;height:${H * sc}px"><img src="img/hd/${c.hd}" style="height:${H * sc}px"><img src="img/hd/${c.hd2}" style="height:${H * .82 * sc}px"></div>`;
+    } else {
+      const [bw, bh] = c.cutout ? [880, 640] : [520, 560];
+      const sc = Math.min(bw / c.w, bh / c.h), w = c.w * sc, h = c.h * sc;
+      art = `<div class="art ${c.cutout ? "cutout" : "framed"}" style="left:${-w / 2}px;top:${-h / 2}px;width:${w}px;height:${h}px"><img src="img/hd/${c.hd}"></div>`;
+    }
+    el.innerHTML = `<div class="ring"></div>${art}`;
+    $("cards").appendChild(el);
+    s.el = el; s.art = el.querySelector(".art"); s.ring = el.querySelector(".ring");
+    const nm = document.createElement("div");
+    nm.className = "name"; nm.style.display = "none";
+    nm.innerHTML = `<div class="in tx"></div>`;
+    $("names").appendChild(nm);
+    s.nameEl = nm; s.nameIn = nm.firstChild; s.letters = letters(s.nameIn, c.name);
+  });
+
+  // decade cards
+  SEGS.filter(s => s.type === "dec").forEach(s => {
+    const el = document.createElement("div");
+    el.className = "dc"; el.style.display = "none"; setVars(el, s.d);
+    el.innerHTML = `<div class="bg" style="background:${grad(s.d)}"></div><div class="rays"></div><div class="dyear tx">${s.d.k}</div><div class="dera tx">${s.d.era}</div><div class="dcount">${s.d.chars.length} ${s.d.chars.length === 1 ? "ICON" : "ICONS"}</div>`;
+    $("dcards").appendChild(el);
+    const q = c => el.querySelector(c);
+    Object.assign(s, { el, dbg: q(".bg"), drays: q(".rays"), dyear: q(".dyear"), dera: q(".dera"), dcount: q(".dcount") });
+  });
+
+  // year odometer
+  $("year").innerHTML = [0, 1, 2, 3].map(() => `<div class="col"><div class="strip">${"01234567890".split("").map(d => `<div>${d}</div>`).join("")}</div></div>`).join("");
+  // star badge
+  const pts = []; for (let i = 0; i < 32; i++) { const a = i / 32 * Math.PI * 2, r = i % 2 ? 84 : 98; pts.push(`${(Math.cos(a) * r).toFixed(1)},${(Math.sin(a) * r).toFixed(1)}`); }
+  $("starpoly").setAttribute("points", pts.join(" "));
+
+  // timeline
+  const tl = $("timeline");
+  for (let y = 2000; y <= 2025; y += 5) tl.insertAdjacentHTML("beforeend", `<div class="tick" style="left:${yearX(y)}px">${y}</div>`);
+  SEGS.filter(s => s.type === "char").forEach(s => {
+    const d = document.createElement("div");
+    d.className = "tdot"; d.style.left = yearX(s.c.year) + "px";
+    tl.insertBefore(d, $("marker")); s.dot = d;
+  });
+
+  buildIntro(); buildOutro(); buildGrain();
+}
+
+/* intro: sticker collage around a hook question */
+const INTRO_IDS = ["shrek", "minions", "mike", "peppa", "bluey", "jake", "finn", "po", "mcqueen", "sulley", "dora", "gru"];
+const INTRO_POS = [[250, 190], [590, 150], [1330, 150], [1680, 200], [150, 560], [1770, 560], [260, 900], [610, 930], [1310, 930], [1660, 900], [960, 140], [960, 930]];
+let introPics = [], t1c = [], t2c = [];
+function buildIntro() {
+  const el = $("intro");
+  el.innerHTML = `<div class="bg" style="background:${grad(INTRO_BG)}"></div><div class="rays" style="top:540px"></div>` +
+    `<div id="t1" class="tline tx"></div><div id="t2" class="tline tx"></div><div id="t3">${CH.length} ICONS · ${CH[0].year} – ${CH[CH.length - 1].year}</div>`;
+  setVars(el, INTRO_BG);
+  INTRO_IDS.forEach((id, i) => {
+    const c = CH.find(c => c.id === id), box = 250, sc = Math.min(box / c.w, box / c.h);
+    const p = document.createElement("div");
+    p.className = "pic " + (c.cutout ? "cutout" : "framed");
+    p.style.width = c.w * sc + "px"; p.style.height = c.h * sc + "px";
+    p.innerHTML = `<img src="img/hd/${c.hd}">`;
+    el.insertBefore(p, $("t1"));
+    introPics.push({ el: p, x: INTRO_POS[i][0], y: INTRO_POS[i][1], w: c.w * sc, h: c.h * sc, rot: (i % 2 ? 1 : -1) * (6 + i % 3 * 3) });
+  });
+  t1c = letters($("t1"), "HOW OLD IS YOUR");
+  t2c = letters($("t2"), "FAVORITE CARTOON?");
+}
+
+/* outro: every character as a tile + comment / subscribe call to action */
+let tiles = [];
+function buildOutro() {
+  const el = $("outro");
+  el.innerHTML = `<div class="bg" style="background:${grad(INTRO_BG)}"></div><div class="rays" style="top:380px"></div>` +
+    `<div id="q1" class="tline tx">WHICH ONE WAS YOUR CHILDHOOD?</div>` +
+    `<div id="q2" class="tx">Tell us in the comments <img src="emoji/backhand_index_pointing_down.png"></div>` +
+    `<div id="sub"><span id="subt">SUBSCRIBE</span><img id="bell" src="emoji/bell.png"></div>` +
+    `<svg id="cursor" viewBox="0 0 70 84"><path d="M6 4 L6 66 L22 52 L33 78 L46 72 L35 47 L56 47 Z" fill="#fff" stroke="#1b1036" stroke-width="6" stroke-linejoin="round"/></svg>`;
+  setVars(el, INTRO_BG);
+  const W = 116, G = 14, left = 960 - (10 * W + 9 * G) / 2, top = 70;
+  CH.forEach((c, i) => {
+    const t = document.createElement("div");
+    t.className = "tile";
+    const row = Math.floor(i / 10), inRow = Math.min(10, CH.length - row * 10);  // centre a short last row
+    t.style.left = left + (10 - inRow) * (W + G) / 2 + (i % 10) * (W + G) + "px"; t.style.top = top + row * (W + G) + "px";
+    t.innerHTML = `<img src="img/hd/${c.hd}"><b>${c.year}</b>`;
+    el.insertBefore(t, $("q1"));
+    tiles.push({ el: t, rot: (rng(i + 7)() - .5) * 10 });
+  });
+}
+
+/* film grain texture (unused by these decades; kept for palettes that set grain) */
+function buildGrain() {
+  const cv = document.createElement("canvas"); cv.width = cv.height = 256; // drawn at 2× for a softer grain
+  const g = cv.getContext("2d"), img = g.createImageData(256, 256), r = rng(99);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  g.putImageData(img, 0, 0);
+  $("grain").style.backgroundImage = `url(${cv.toDataURL()})`;
+}
+
+/* fit names after fonts load */
+function measure() {
+  SEGS.filter(s => s.type === "char").forEach(s => {
+    show(s.nameEl, true);
+    const w = s.nameIn.offsetWidth;
+    if (w > 1150) s.nameIn.style.fontSize = (96 * 1150 / w).toFixed(1) + "px";
+    show(s.nameEl, false);
+  });
+  const t3 = $("t3"); t3.style.marginLeft = -t3.offsetWidth / 2 + "px";
+}
+
+/* ───────────── ambient confetti + bursts ───────────── */
+const cctx = $("confetti").getContext("2d"), bctx = $("burst").getContext("2d");
+const CONF = (() => { const r = rng(5); return Array.from({ length: 54 }, () => ({ x: r() * 1920, y: r() * 1080, s: 10 + r() * 22, vx: (r() - .5) * 30, vy: -14 - r() * 34, rot: r() * 6.28, vr: (r() - .5) * 2.4, k: Math.floor(r() * 4), c: Math.floor(r() * 3), a: .35 + r() * .45 })); })();
+function shape(g, k, s) {
+  g.beginPath();
+  if (k === 0) g.arc(0, 0, s / 2, 0, 6.283);
+  else if (k === 1) g.rect(-s / 2, -s / 2, s, s * .55);
+  else if (k === 2) { g.moveTo(0, -s / 2); g.lineTo(s / 2, s / 2); g.lineTo(-s / 2, s / 2); g.closePath(); }
+  else { g.lineWidth = s / 4; g.lineCap = "round"; g.moveTo(-s / 2, 0); g.quadraticCurveTo(-s / 4, -s / 2, 0, 0); g.quadraticCurveTo(s / 4, s / 2, s / 2, 0); return g.stroke(); }
+  g.fill();
+}
+function drawConfetti(t, pal) {
+  cctx.clearRect(0, 0, 1920, 1080);
+  const cols = [pal.acc, pal.acc2, "#ffffff"];
+  for (const p of CONF) {
+    const x = ((p.x + p.vx * t) % 2000 + 2000) % 2000 - 40, y = ((p.y + p.vy * t) % 1160 + 1160) % 1160 - 40;
+    cctx.save(); cctx.translate(x, y); cctx.rotate(p.rot + p.vr * t);
+    cctx.globalAlpha = p.a; cctx.fillStyle = cctx.strokeStyle = cols[p.c];
+    shape(cctx, p.k, p.s); cctx.restore();
+  }
+}
+function drawBurst(seed, lt, cx, cy, pal) {
+  if (lt < 0 || lt > 1.3) return;
+  const r = rng(seed), cols = [pal.acc, pal.acc2, "#ffffff", pal.acc];
+  for (let i = 0; i < 30; i++) {
+    const a = r() * 6.283, v = 520 + r() * 680, s = 12 + r() * 16, k = Math.floor(r() * 4), spin = (r() - .5) * 14, c = cols[i % 4];
+    const u = lt, x = cx + Math.cos(a) * v * u * (1 - u * .35), y = cy + Math.sin(a) * v * u * (1 - u * .35) + 520 * u * u;
+    bctx.save(); bctx.translate(x, y); bctx.rotate(spin * u);
+    bctx.globalAlpha = clamp(1.3 - u); bctx.fillStyle = bctx.strokeStyle = c;
+    shape(bctx, k, s); bctx.restore();
+  }
+}
+
+/* ───────────── frame ───────────── */
+let lastShown = new Set();
+function segAt(t) {
+  if (t < SEGS[0].t0) return -1;
+  let i = 0; while (i < SEGS.length - 1 && SEGS[i + 1].t0 <= t) i++;
+  return t >= OUTRO ? SEGS.length : i;
+}
+
+function render(t) {
+  const si = segAt(t);
+  const seg = si >= 0 && si < SEGS.length ? SEGS[si] : null;
+  const lt = seg ? t - seg.t0 : 0;
+  const shown = new Set();
+
+  // palette / background: switch decades only once the title card has covered the screen
+  let pal = INTRO_BG, bgi = 0;
+  if (seg) {
+    const d = seg.type === "dec" && lt < .55 && seg.prev ? seg.prev.d : seg.d;
+    if (!(seg.type === "dec" && lt < .55 && !seg.prev)) { pal = d; bgi = d.i + 1; }
+  } else if (si === SEGS.length) { pal = DECADES[DECADES.length - 1]; bgi = DECADES.length; }
+  bgEls.forEach((el, i) => show(el, i === bgi));
+  setVars($("stage"), pal);
+  tf($("rays"), `rotate(${t * 9}deg)`);
+  $("rays").style.top = "385px";
+  drawConfetti(t, pal);
+  bctx.clearRect(0, 0, 1920, 1080);
+  // film grain: soft, refreshed 8×/s — full-rate noise costs ~10× the video bitrate
+  if (show($("grain"), (pal.grain || 0) > 0)) $("grain").style.opacity = pal.grain;
+  const gf = Math.floor(t * 8), gr = rng(gf);
+  $("grain").style.backgroundPosition = `${Math.floor(gr() * 256)}px ${Math.floor(gr() * 256)}px`;
+
+  // characters (current + the one swiping out)
+  const drawChar = (s, exit) => {
+    const l = t - s.t0;
+    const ex = exit ? P(t - s.next.t0, 0, .32, E.inOutCubic) : 0;
+    const nx = exit ? P(t - s.next.t0, 0, .16, E.outCubic) : 0;
+    if (ex >= 1) return;
+    shown.add(s.el); shown.add(s.nameEl);
+    const k1 = E.outExpo(clamp(l / .42)), kb = P(l, 0, .55, E.outBack);
+    const sq = l > .2 ? Math.exp(-(l - .2) * 9) * Math.sin((l - .2) * 30) * .08 : 0;
+    const bp = l % BEAT, pulse = l > BEAT * .9 ? .022 * Math.exp(-bp * 12) : 0;
+    const sc = (.5 + .5 * kb) * (1 - ex * .4) * (1 + pulse);
+    const rot = lerp(24, s.tilt, E.outCubic(clamp(l / .55))) - ex * 30;
+    tf(s.el, `translate(${(1 - k1) * 1150 - ex * 1250}px,${Math.sin(t * 2.3 + s.n) * 7 - ex * 40}px)`);
+    s.el.style.opacity = 1 - ex;
+    tf(s.art, `rotate(${rot}deg) scale(${sc * (1 + sq)},${sc * (1 - sq)})`);
+    const rk = clamp((l - .12) / .55);
+    s.ring.style.opacity = l > .12 && rk < 1 ? (1 - rk) : 0;
+    tf(s.ring, `scale(${.3 + E.outCubic(rk) * 1.3})`);
+    if (!exit) drawBurst(s.n * 13, l - .14, 960, 385, s.d);
+    // name letters
+    s.letters.forEach((ch, i) => {
+      const k = P(l, .1 + i * .024, .5, E.outBack);
+      ch.style.opacity = clamp(k * 2.5);
+      tf(ch, `translateY(${(1 - k) * 60}px) scale(${Math.max(0, k)})`);
+    });
+    tf(s.nameEl, `translateX(${-nx * 500}px)`);
+    s.nameEl.style.opacity = 1 - nx;
+  };
+  if (seg && seg.type === "char") drawChar(seg, false);
+  if (seg && seg.prev && seg.prev.type === "char" && lt < .6) drawChar(seg.prev, seg.type === "char");
+  if (si === SEGS.length && t - OUTRO < .6) drawChar(SEGS[SEGS.length - 1], false);
+
+  // side panels, year, timeline follow the latest character
+  const cs = seg && seg.type === "char" ? seg : seg && seg.prev && seg.prev.type === "char" ? seg.prev : si === SEGS.length ? SEGS[SEGS.length - 1] : null;
+  const panels = !!cs;
+  [$("left"), $("right"), $("year")].forEach(el => show(el, panels));
+  if (cs) {
+    const l = t - cs.t0, fresh = cs === seg;
+    // left
+    if ($("ldec").textContent !== cs.d.k) {
+      $("ldec").textContent = cs.d.k; $("lera").textContent = cs.d.era;
+      $("ldots").innerHTML = cs.d.chars.map(() => "<i></i>").join("");
+    }
+    [...$("ldots").children].forEach((d, i) => d.className = i < cs.j ? "on" : i === cs.j ? "cur" : "");
+    const lk = cs.j === 0 && fresh ? P(l, 0, .6, E.outExpo) : 1;
+    tf($("left"), `translateX(${(1 - lk) * -420}px)`);
+    // right
+    $("cnt").firstElementChild.textContent = String(cs.n).padStart(2, "0");
+    $("age").querySelector("b").textContent = THIS_YEAR - cs.c.year;
+    $("debut").querySelector("p").textContent = cs.c.debut;
+    const ck = fresh ? P(l, .04, .45, E.outBack) : 1, ak = fresh ? P(l, BEAT * .9, .55, E.outBack) : 1, dk = fresh ? P(l, BEAT * 1.4, .5, E.outExpo) : 1;
+    tf($("cnt"), `scale(${Math.max(0, ck)})`); $("cnt").style.transformOrigin = "0 70%";
+    tf($("age"), `rotate(${(1 - ak) * -200 + Math.sin(t * 1.6) * 4}deg) scale(${Math.max(0, ak)})`);
+    $("debut").style.opacity = dk; tf($("debut"), `translateX(${(1 - dk) * 120}px)`);
+    // year odometer
+    const yk = fresh ? P(l, .05, .65, E.inOutCubic) : 1, from = fresh ? cs.from : cs.c.year;
+    [...$("year").children].forEach((col, i) => {
+      const p = 10 ** (3 - i), a = Math.floor(from / p), b = Math.floor(cs.c.year / p);
+      const v = lerp(a, b, yk);
+      tf(col.firstChild, `translateY(${-(((v % 10) + 10) % 10) * 170}px)`);
+    });
+    const yp = fresh ? P(l, .68, .4, E.outBack) : 1;
+    tf($("year"), `translateX(-196px) scale(${1 + (1 - yp) * .14 * (yk >= 1 ? 1 : 0)})`);
+    // timeline
+    const mk = fresh ? P(l, .05, .65, E.inOutCubic) : 1;
+    const mx = lerp(yearX(Math.max(Y0, fresh ? cs.from : cs.c.year)), yearX(cs.c.year), mk);
+    $("marker").style.left = mx + "px";
+    $("fill").style.width = (mx - 200) + "px";
+    SEGS.forEach(s => { if (s.dot) s.dot.className = "tdot" + (s.type === "char" && s.n <= cs.n ? " on" : ""); });
+  } else {
+    $("marker").style.left = "200px"; $("fill").style.width = "0px";
+  }
+  const tk = P(t, 2 * BAR, .6, E.outExpo) * (1 - P(t, OUTRO, .4, E.inCubic));
+  $("timeline").style.opacity = tk; tf($("timeline"), `translateY(${(1 - tk) * 90}px)`);
+
+  // decade title cards
+  let shake = 0;
+  const drawDec = s => {
+    const l = t - s.t0;
+    if (l < 0 || l > BAR) return;
+    shown.add(s.el);
+    const r = P(l, 0, .5, E.inOutQuart);
+    s.el.style.clipPath = r < 1 ? `circle(${(r * 1150).toFixed(1)}px at 50% 50%)` : "none";
+    tf(s.drays, `rotate(${t * 9}deg)`);
+    const k = P(l, .1, .5, E.outExpo), ex = P(l, BAR - .32, .3, E.inCubic);
+    s.dyear.style.opacity = clamp(k * 3) * (1 - ex);
+    tf(s.dyear, `rotate(${lerp(-14, -3, k)}deg) scale(${lerp(3.2, 1, k) * (1 + ex * .5)})`);
+    const ek = P(l, .45, .5, E.outExpo);
+    s.dera.style.opacity = ek * (1 - ex); tf(s.dera, `translateY(${(1 - ek) * 50}px)`);
+    const ck = P(l, .7, .5, E.outBack);
+    s.dcount.style.opacity = clamp(ck * 2) * (1 - ex); tf(s.dcount, `scale(${Math.max(0, ck)})`);
+    s.dbg.style.opacity = s.drays.style.opacity = 1 - P(l, BAR - .1, .1);
+    if (l > .3) shake = Math.max(shake, 16 * Math.exp(-(l - .3) * 7));
+  };
+  if (seg && seg.type === "dec") drawDec(seg);
+  const sh = shake * Math.sin(t * 70);
+  tf($("world"), shake ? `translate(${sh}px,${sh * .6}px)` : "none");
+
+  intro(t); outro(t);
+
+  for (const el of lastShown) if (!shown.has(el)) show(el, false);
+  for (const el of shown) show(el, true);
+  lastShown = shown;
+
+  $("fade").style.opacity = Math.max(1 - P(t, 0, .25), P(t, DUR - .7, .7, E.inOutCubic));
+}
+
+function intro(t) {
+  const end = 2 * BAR;
+  if (!show($("intro"), t < end + .55)) return;
+  const r = P(t, end, .5, E.inOutQuart);
+  $("intro").style.clipPath = "none";
+  $("intro").style.opacity = 1 - P(t, end + .45, .1);
+  $("intro").querySelector(".rays").style.transform = `rotate(${t * 12}deg)`;
+  const out = P(t, end - .38, .38, E.inCubic);
+  introPics.forEach((p, i) => {
+    const k = P(t, .05 + i * .07, .5, E.outBack);
+    const dx = p.x - 960, dy = p.y - 540;
+    const x = p.x + dx * out * 1.2, y = p.y + dy * out * 1.2 + Math.sin(t * 2.4 + i) * 8;
+    tf(p.el, `translate(${x - p.w / 2}px,${y - p.h / 2}px) rotate(${p.rot + Math.sin(t * 1.7 + i) * 3}deg) scale(${Math.max(0, k)})`);
+    p.el.style.opacity = clamp(k * 3);
+  });
+  t1c.forEach((c, i) => { const k = P(t, .45 + i * .03, .5, E.outBack); c.style.opacity = clamp(k * 2); tf(c, `translateY(${(1 - k) * 50}px) scale(${Math.max(0, k)})`); });
+  t2c.forEach((c, i) => { const k = P(t, .9 + i * .035, .55, E.outBack); c.style.opacity = clamp(k * 2); tf(c, `translateY(${(1 - k) * 80}px) scale(${Math.max(0, k)}) rotate(${(1 - clamp(k)) * 20}deg)`); });
+  const beatPulse = t > 2 * BEAT * 3 ? .05 * Math.exp(-((t - 6 * BEAT) % BEAT) * 10) : 0;
+  tf($("t2"), `scale(${(1 + beatPulse) * (1 - out * .3)})`);
+  $("t1").style.opacity = $("t2").style.opacity = 1 - out;
+  const k3 = P(t, 1.85, .5, E.outBack);
+  tf($("t3"), `scale(${Math.max(0, k3) * (1 - out)})`);
+  void r;
+}
+
+function outro(t) {
+  const l = t - OUTRO;
+  if (!show($("outro"), l >= 0)) return;
+  const r = P(l, 0, .5, E.inOutQuart);
+  $("outro").style.clipPath = r < 1 ? `circle(${(r * 1150).toFixed(1)}px at 50% 50%)` : "none";
+  $("outro").querySelector(".rays").style.transform = `rotate(${t * 9}deg)`;
+  tiles.forEach((tl, i) => {
+    const k = P(l, .2 + i * .024, .4, E.outBack);
+    tf(tl.el, `rotate(${tl.rot * (1 - clamp(k)) + Math.sin(t * 2 + i) * 1.5}deg) scale(${Math.max(0, k)})`);
+  });
+  const k1 = P(l, 1.45, .5, E.outBack);
+  tf($("q1"), `scale(${Math.max(0, k1)})`);
+  const k2 = P(l, 1.9, .5, E.outExpo);
+  $("q2").style.opacity = k2; tf($("q2"), `translateY(${(1 - k2) * 40}px)`);
+  tf($("q2").querySelector("img"), `translateY(${Math.abs(Math.sin(t * 6)) * 10}px)`);
+  const ks = P(l, 2.35, .5, E.outBack), click = l > 3.45, press = Math.max(0, 1 - Math.abs(l - 3.45) / .12);
+  tf($("sub"), `scale(${Math.max(0, ks) * (1 - press * .1)})`);
+  $("sub").style.background = click ? "#8a8a96" : "#ff1f3d";
+  $("subt").textContent = click ? "SUBSCRIBED" : "SUBSCRIBE";
+  tf($("bell"), click ? `rotate(${Math.sin((l - 3.45) * 30) * 28 * Math.exp(-(l - 3.45) * 3)}deg)` : "none");
+  const ck = P(l, 2.8, .6, E.inOutCubic), cx = lerp(1560, 1080, ck), cy = lerp(1120, 975, ck);
+  tf($("cursor"), `translate(${cx}px,${cy}px) scale(${1 - press * .2})`);
+  $("cursor").style.opacity = l > 2.75 && l < 4.6 ? 1 : 0;
+}
+
+/* ───────────── boot ───────────── */
+let ready;
+window.__ready = new Promise(r => { ready = r; });
+window.__seek = t => render(t);
+function fit() { const s = Math.min(innerWidth / 1920, innerHeight / 1080); tf($("stage"), `scale(${s})`); }
+addEventListener("resize", fit); fit();
+
+(async () => {
+  CH = await (await fetch("characters.json")).json();
+  $("cnt").lastElementChild.textContent = "/" + CH.length;
+  build();
+  await document.fonts.load('700 40px "Fredoka"');
+  await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+  measure();
+  window.__duration = DUR;
+  window.__segments = SEGS.map(s => ({ type: s.type, t0: s.t0, year: s.c ? s.c.year : null, from: s.from ?? null, decade: s.d.k, count: s.d.chars.length }));
+  window.__outro = OUTRO;
+  render(0);
+  ready();
+  if (RENDER) return;
+  if (Q.has("t")) { render(+Q.get("t")); return; }
+  const snd = new Audio("out/soundtrack.mp3"); snd.preload = "auto";
+  let start = performance.now(), paused = false, pt = 0, sound = false;
+  const now = () => paused ? pt : sound && !snd.paused ? snd.currentTime % DUR : ((performance.now() - start) / 1000) % DUR;
+  const seek = t => { start = performance.now() - t * 1000; pt = t; if (sound) snd.currentTime = t; };
+  const enableSound = () => { if (!sound) { sound = true; snd.currentTime = now(); snd.play().catch(() => { sound = false; }); } };
+  snd.addEventListener("ended", () => { if (!paused) { snd.currentTime = 0; snd.play(); } });
+  addEventListener("keydown", e => {
+    if (e.code === "Space") { e.preventDefault(); if (paused) { seek(pt); paused = false; if (sound) snd.play(); else enableSound(); } else { pt = now(); paused = true; snd.pause(); } }
+    if (e.code === "ArrowRight") seek(Math.min(DUR - .01, now() + 5));
+    if (e.code === "ArrowLeft") seek(Math.max(0, now() - 5));
+  });
+  $("bar").addEventListener("click", e => { e.stopPropagation(); seek(e.clientX / innerWidth * DUR); });
+  $("stage").addEventListener("click", () => { paused = false; seek(0); enableSound(); if (sound) snd.play(); });
+  (function loop() { const t = now(); render(t); $("bar").firstChild.style.width = (t / DUR * 100) + "%"; requestAnimationFrame(loop); })();
+})();
+</script>
+</body>
+</html>

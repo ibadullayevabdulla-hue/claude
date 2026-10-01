@@ -1,0 +1,12 @@
+{
+  "name": "cartoon-icons-2000s",
+  "private": true,
+  "description": "2-minute motion video: 46 cartoon characters by year (2000-2023), with original music",
+  "scripts": {
+    "render": "node render.cjs",
+    "thumb": "node render.cjs --thumb"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}
