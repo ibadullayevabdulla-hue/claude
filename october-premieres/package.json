@@ -1,0 +1,7 @@
+{
+  "name": "october-premieres",
+  "private": true,
+  "description": "Motion video: animated movies premiering in October 2026, with original music",
+  "scripts": { "render": "node render.cjs", "thumb": "node render.cjs --thumb" },
+  "devDependencies": { "playwright": "^1.56.1" }
+}
