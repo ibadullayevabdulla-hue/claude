@@ -1,6 +1,6 @@
 # Claude Code — 30 soniyalik motion
 
-Claude Code haqida 30 soniyalik dinamik motion-grafika (1920×1080, 30 fps).
+Claude Code haqida 30 soniyalik dinamik motion-grafika (1920×1080, 30 fps), musiqa va ovoz effektlari bilan.
 
 **Tayyor video:** [`out/claude-code-uz.mp4`](out/claude-code-uz.mp4)
 
@@ -23,7 +23,7 @@ npx serve .            # yoki: python3 -m http.server
 # http://localhost:3000/index.html?t=12.5   — bitta kadrni muzlatish
 ```
 
-Boshqaruv: `Space` — pauza, `←/→` — 2 soniya oldinga/orqaga, sahnaga bosish — boshidan.
+Boshqaruv: sahnaga bosish — ovoz bilan boshidan, `Space` — pauza, `←/→` — 2 soniya oldinga/orqaga.
 
 ## MP4 ga render qilish
 
@@ -38,4 +38,12 @@ node render.cjs --stills=3,12.5 # faqat PNG kadrlar
 ```
 
 Animatsiya toʻliq deterministik: har bir kadr `window.__seek(t)` orqali chiziladi, shuning uchun render natijasi har safar bir xil boʻladi.
-Video ovozsiz — musiqani montajda qoʻshing.
+
+## Ovoz
+
+`soundtrack.py` musiqa va effektlarni kod orqali sintez qiladi (Python 3, `pip install numpy scipy`) va ularni animatsiya vaqtiga aniq bogʻlaydi:
+
+- **Musiqa:** 126 BPM, Am–F–C–G. Intro — pad va riser; 3.7 s da zarb (toʻq sariq flash); terminal sahnasida yengil groove; 15–17 s da build-up; 17.0 s da drop (soʻzlar sahnasi); 26.5 s da yakuniy akkord.
+- **Effektlar:** klaviatura bosishlari (`claude`, prompt, oʻrnatish buyrugʻi), Enter, tool-call signallari, diff qatorlari, test hisoblagichi, „test oʻtdi“ chime, chip pop, har bir soʻz oʻtishidagi whoosh va zarb, kartochkalar pop.
+
+`node render.cjs` videoni ovoz bilan birga chiqaradi. Faqat ovozni qayta yaratish uchun: `node render.cjs --mux`.

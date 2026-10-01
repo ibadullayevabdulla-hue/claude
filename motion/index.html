@@ -204,7 +204,7 @@ html,body{width:100%;height:100%;background:#000;overflow:hidden}
   <div id="fade" class="layer"></div>
 </div>
 <div id="bar"><i></i></div>
-<div id="hint">space · ← → · click</div>
+<div id="hint">click ▶ sound · space · ← →</div>
 
 <script>
 "use strict";
@@ -693,16 +693,26 @@ document.fonts.ready.then(() => Promise.all([document.fonts.load('700 20px "Inte
   ready();
   if (RENDER) return;
   if (Q.has("t")) { render(+Q.get("t")); return; }
-  let start = performance.now(), paused = false, pt = 0;
-  const now = () => paused ? pt : ((performance.now() - start) / 1000) % DUR;
-  const seek = t => { start = performance.now() - t * 1000; pt = t; };
+  // Soundtrack: browsers only allow audio after a user gesture, so the first
+  // click / key press starts it; from then on the audio clock drives the frame.
+  const snd = new Audio(`out/soundtrack-${LANG}.mp3`);
+  snd.preload = "auto";
+  let start = performance.now(), paused = false, pt = 0, sound = false;
+  const now = () => paused ? pt : sound && !snd.paused ? snd.currentTime % DUR : ((performance.now() - start) / 1000) % DUR;
+  const seek = t => { start = performance.now() - t * 1000; pt = t; if (sound) snd.currentTime = t; };
+  const enableSound = () => { if (!sound) { sound = true; snd.currentTime = now(); snd.play().catch(() => { sound = false; }); } };
+  snd.addEventListener("ended", () => { if (!paused) { snd.currentTime = 0; snd.play(); } });
   addEventListener("keydown", e => {
-    if (e.code === "Space") { if (paused) seek(pt); else pt = now(); paused = !paused; e.preventDefault(); }
+    if (e.code === "Space") {
+      e.preventDefault();
+      if (paused) { seek(pt); paused = false; if (sound) snd.play(); else enableSound(); }
+      else { pt = now(); paused = true; snd.pause(); }
+    }
     if (e.code === "ArrowRight") seek(Math.min(DUR - .01, now() + 2));
     if (e.code === "ArrowLeft") seek(Math.max(0, now() - 2));
   });
   $("bar").addEventListener("click", e => { e.stopPropagation(); seek(e.clientX / innerWidth * DUR); });
-  $("stage").addEventListener("click", () => seek(0));
+  $("stage").addEventListener("click", () => { paused = false; seek(0); enableSound(); if (sound) snd.play(); });
   (function loop() {
     const t = now();
     render(t);

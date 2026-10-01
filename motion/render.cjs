@@ -1,19 +1,18 @@
 #!/usr/bin/env node
-// Renders index.html frame-by-frame into an MP4 with Playwright + ffmpeg.
+// Renders index.html frame-by-frame into an MP4 with Playwright + ffmpeg,
+// then muxes in the soundtrack from soundtrack.py.
 //
 //   node render.cjs                      # uz, 30 fps -> out/claude-code-uz.mp4
 //   node render.cjs --lang=en --fps=60
+//   node render.cjs --mux                # keep the rendered video, redo only the audio
+//   node render.cjs --no-audio           # silent video
 //   node render.cjs --stills=0,5,12.3    # PNG stills only, for checking frames
 "use strict";
 const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
-const { spawn } = require("node:child_process");
+const { spawn, spawnSync } = require("node:child_process");
 const { once } = require("node:events");
-
-let chromium;
-try { ({ chromium } = require("playwright")); }
-catch { console.error("playwright not found — run `npm install` in this folder first"); process.exit(1); }
 
 const args = Object.fromEntries(process.argv.slice(2).map(a => {
   const [k, v = "1"] = a.replace(/^--/, "").split("=");
@@ -23,10 +22,41 @@ const lang = args.lang || "uz";
 const fps = Number(args.fps || 30);
 const outDir = path.join(__dirname, "out");
 const out = args.out || path.join(outDir, `claude-code-${lang}.mp4`);
+const silent = path.join(outDir, `.video-${lang}.mp4`);
 fs.mkdirSync(outDir, { recursive: true });
 
+function run(cmd, argv) {
+  const r = spawnSync(cmd, argv, { stdio: ["ignore", "pipe", "inherit"], encoding: "utf8" });
+  if (r.status !== 0) throw new Error(`${cmd} exited with ${r.status ?? r.error}`);
+  return r.stdout.trim();
+}
+
+// Synthesises the soundtrack and muxes it with the silent video into `out`.
+function mux() {
+  if (args["no-audio"]) { fs.renameSync(silent, out); return; }
+  const wav = run("python3", [path.join(__dirname, "soundtrack.py"), `--lang=${lang}`]);
+  run("ffmpeg", ["-y", "-loglevel", "error", "-i", silent, "-i", wav,
+    "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+    "-shortest", "-movflags", "+faststart", out]);
+  // MP3 copy for the live HTML player (plays in every browser)
+  run("ffmpeg", ["-y", "-loglevel", "error", "-i", wav, "-c:a", "libmp3lame", "-b:a", "192k", path.join(outDir, `soundtrack-${lang}.mp3`)]);
+  fs.unlinkSync(silent);
+}
+
+if (args.mux) {
+  if (!fs.existsSync(out)) { console.error(`${out} not found — render the video first`); process.exit(1); }
+  run("ffmpeg", ["-y", "-loglevel", "error", "-i", out, "-map", "0:v", "-c", "copy", silent]);
+  mux();
+  console.log(out);
+  process.exit(0);
+}
+
+let chromium;
+try { ({ chromium } = require("playwright")); }
+catch { console.error("playwright not found — run `npm install` in this folder first"); process.exit(1); }
+
 // Serve this folder over http so @font-face loads (file:// fonts are blocked by CORS).
-const TYPES = { ".html": "text/html; charset=utf-8", ".woff2": "font/woff2", ".js": "text/javascript" };
+const TYPES = { ".html": "text/html; charset=utf-8", ".woff2": "font/woff2", ".js": "text/javascript", ".mp3": "audio/mpeg" };
 const server = http.createServer((req, res) => {
   const p = path.join(__dirname, decodeURIComponent(new URL(req.url, "http://x").pathname));
   if (!p.startsWith(__dirname) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) { res.writeHead(404); return res.end(); }
@@ -57,7 +87,7 @@ const server = http.createServer((req, res) => {
       "-y", "-loglevel", "error",
       "-f", "image2pipe", "-framerate", String(fps), "-i", "-",
       "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-pix_fmt", "yuv420p",
-      "-movflags", "+faststart", out
+      "-movflags", "+faststart", silent
     ], { stdio: ["pipe", "inherit", "inherit"] });
     const frames = Math.round(duration * fps);
     const t0 = Date.now();
@@ -70,6 +100,7 @@ const server = http.createServer((req, res) => {
     ff.stdin.end();
     const [code] = await once(ff, "close");
     if (code !== 0) throw new Error(`ffmpeg exited with ${code}`);
+    mux();
     console.log(`\n${out}`);
   }
   await browser.close();
