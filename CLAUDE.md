@@ -32,7 +32,7 @@ so new work matches earlier work without them repeating themselves.
 6. Pick the length from the content. For character timelines, aim for about
    2 minutes and adjust the BPM to get there.
 
-## The two video styles
+## Video styles
 
 ### Style A — "Characters by year" timeline
 
@@ -87,6 +87,29 @@ Projects: `october-premieres/` (17 films, 1:18) and `animated-2027/` (57 films, 
   - Posters: TMDB HTML (search cards, `og:image`, originals under `image.tmdb.org/t/p/original/`) and the IMDb suggestion API.
   - Reject live-action or wrong-film matches.
   - Length scales with the number of films.
+
+### Style C — military promo from the user's own images (Uzbek text)
+
+Project: `litsey-motion/` (Jaloliddin Manguberdi lyceum, 1:32). Use this style when the user sends a logo and infographics and asks for a "harbiycha" (military) video.
+
+- **Text:** Uzbek. Keep the infographic wording exactly, with o‘/g‘ written ‘ and ta’lim written ’.
+- **Only Uzbek symbols:**
+  - the Uzbek flag, drawn in code and waving;
+  - the eight-pointed star;
+  - girih pattern;
+  - arch (peshtoq) frames;
+  - navy and gold colours.
+  - No foreign stars or emblems.
+- **Structure:**
+  - The logo slams in, with the lyceum name above it.
+  - A section card for each infographic.
+  - One scene (2 bars) per numbered panel. Each scene has an octagram number badge, the title, the text and the cropped photo in a gold frame; the photo side alternates.
+  - Counters for numbers (ball, %).
+  - Outro with the logo and the slogan.
+- **Images:**
+  - Cut panels out of the infographics (`crops.json`).
+  - Upscale them 4× with OpenCV EDSR (`upscale.py`), which is much sharper than Lanczos.
+- **Music:** an original military march (snare cadences, timpani, brass fanfare, strings, choir), 120 BPM.
 
 (`motion/` is a separate 30-second Claude Code promo, not a series style.)
 
