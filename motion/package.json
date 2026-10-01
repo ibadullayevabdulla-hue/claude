@@ -1,0 +1,12 @@
+{
+  "name": "claude-code-motion",
+  "private": true,
+  "description": "30-second motion graphic about Claude Code (HTML + Playwright render to MP4)",
+  "scripts": {
+    "render": "node render.cjs --lang=uz",
+    "render:en": "node render.cjs --lang=en"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}
