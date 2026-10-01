@@ -111,6 +111,24 @@ Project: `litsey-motion/` (Jaloliddin Manguberdi lyceum, 1:32). Use this style w
   - Upscale them 4× with OpenCV EDSR (`upscale.py`), which is much sharper than Lanczos.
 - **Music:** an original military march (snare cadences, timpani, brass fanfare, strings, choir), 120 BPM.
 
+### Style D — vertical 9:16 icon promo, gold octagrams (Uzbek text)
+
+Project: `litsey-vertical/` (same lyceum, 1080×1920, exactly 2:00). Use this style when the user wants a vertical video, icons instead of photos, and only the logo as an image.
+
+- **Look:**
+  - Deep emerald-black background, a girih lattice and a rotating gold octagram mandala.
+  - The Uzbek flag waves at the top in the intro and outro.
+- **Main element:**
+  - A big gold eight-pointed star frame. It turns 45° and shoots sparks at every scene change.
+  - Inside the star, a Tabler icon (MIT, `fetch_icons.py`) draws itself in gold strokes.
+  - A gold octagram badge carries the number.
+- **Text:**
+  - Saira Condensed titles, Saira Stencil numbers, Manrope body text.
+  - Chips with small icons.
+- **Logo:** slams in at the start, then flies to the header; it flies back for the finale.
+- **Icons:** avoid any with foreign symbols. "language" has a Chinese character and "medal" has a five-pointed star; use "abc" instead.
+- **Music:** cinematic with an Uzbek flavour — doira grooves, a karnay-like horn, a surnay-like reed melody, plus epic drums, spiccato strings and choir. 100 BPM.
+
 (`motion/` is a separate 30-second Claude Code promo, not a series style.)
 
 ## Presentation styles (Slides artifacts)
