@@ -1,0 +1,6 @@
+node_modules/
+out/still-*.png
+out/*.wav
+out/.video*
+out/.part*
+out/render.log

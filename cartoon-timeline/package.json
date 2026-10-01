@@ -1,0 +1,12 @@
+{
+  "name": "cartoon-icons-timeline",
+  "private": true,
+  "description": "2-minute motion video: 50 cartoon characters by year, with original music",
+  "scripts": {
+    "render": "node render.cjs",
+    "thumb": "node render.cjs --thumb"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}

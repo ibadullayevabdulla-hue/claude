@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cartoon Icons Thumbnail</title>
+<style>
+@font-face{font-family:"Fredoka";src:url("fonts/fredoka-latin-wght-normal.woff2") format("woff2");font-weight:300 700;font-display:block}
+:root{--ink:#1b1036}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px;height:720px;overflow:hidden}
+body{position:relative;font-family:"Fredoka",sans-serif;background:linear-gradient(135deg,#7b2cbf,#240046)}
+.rays{position:absolute;left:640px;top:420px;width:2600px;height:2600px;margin:-1300px 0 0 -1300px;border-radius:50%;background:repeating-conic-gradient(from 4deg,rgba(255,214,10,.22) 0deg 8deg,rgba(255,214,10,0) 8deg 20deg);-webkit-mask-image:radial-gradient(closest-side,#000 10%,transparent 70%)}
+.tx{color:#fff;-webkit-text-stroke:16px var(--ink);paint-order:stroke fill;font-weight:700;white-space:nowrap;text-align:center;position:absolute;left:0;right:0}
+#h1{top:22px;font-size:112px;color:#ffd60a;text-shadow:0 10px 0 var(--ink);letter-spacing:.01em}
+#h2{top:142px;font-size:68px;text-shadow:0 8px 0 var(--ink)}
+.st{position:absolute;bottom:0}
+.st img{display:block;width:100%}
+.tag{position:absolute;padding:4px 26px;border-radius:999px;border:7px solid var(--ink);box-shadow:0 8px 0 var(--ink);font-size:66px;font-weight:700;color:var(--ink)}
+#vs{position:absolute;left:560px;top:450px;width:160px;height:160px;border-radius:50%;background:#ff1f3d;border:8px solid var(--ink);box-shadow:0 8px 0 var(--ink);display:grid;place-items:center;font-size:62px;font-weight:700;color:#fff}
+</style>
+</head>
+<body>
+<div class="rays"></div>
+<div id="h1" class="tx">HOW OLD ARE THEY?</div>
+<div id="h2" class="tx">50 CARTOONS BY YEAR</div>
+<div class="st" style="left:10px;width:470px;bottom:-60px;transform:rotate(-5deg)"><img src="img/hd/mickey.webp"></div>
+<div class="st" style="left:800px;width:470px;bottom:-70px;transform:rotate(5deg)"><img src="img/hd/spongebob.webp"></div>
+<div class="tag" style="left:330px;top:300px;background:#ffd60a;transform:rotate(-8deg)">1928</div>
+<div class="tag" style="left:745px;top:300px;background:#4cc9f0;transform:rotate(8deg)">1999</div>
+<div id="vs">VS</div>
+</body>
+</html>
