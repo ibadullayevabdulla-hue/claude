@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animated Movies 2027</title>
+<style>
+@font-face{font-family:"Bebas";src:url("fonts/bebas-neue-latin-400-normal.woff2") format("woff2");font-display:block}
+@font-face{font-family:"Outfit";src:url("fonts/outfit-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:block}
+:root{--bg:#0a0f2a;--orange:#35d0ff;--amber:#ffc94a;--pink:#ff4fd8;--cream:#f4f6ff;--muted:#c3c8e8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;margin:-540px 0 0 -960px;overflow:hidden;background:var(--bg);color:var(--cream);font-family:"Outfit",system-ui,sans-serif;transform-origin:50% 50%;-webkit-font-smoothing:antialiased}
+.L{position:absolute;inset:0}
+img{display:block}
+.bebas{font-family:"Bebas",Impact,sans-serif;font-weight:400;letter-spacing:.02em}
+
+/* backdrop */
+.bgimg{position:absolute;left:-60px;top:-34px;width:2040px;height:1148px;object-fit:cover}
+#shade{background:linear-gradient(90deg,rgba(10,15,42,.25) 0%,rgba(10,15,42,.55) 40%,rgba(10,15,42,.88) 70%,rgba(10,15,42,.95) 100%),linear-gradient(0deg,rgba(10,15,42,.95) 0%,rgba(10,15,42,0) 30%)}
+#glow{background:radial-gradient(ellipse 45% 55% at 25% 50%,rgba(130,80,255,.28),transparent 70%)}
+#vig{background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 60%,rgba(0,0,0,.55))}
+
+/* poster */
+#posters{perspective:1800px}
+.poster{position:absolute;left:150px;top:62px;height:860px;transform-origin:50% 50%;border-radius:20px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.65),0 0 0 2px rgba(255,255,255,.08)}
+.poster img{height:100%;width:100%;object-fit:cover}
+.poster .sheen{position:absolute;inset:-20%;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.38) 50%,transparent 60%)}
+
+/* info column */
+#info{position:absolute;left:880px;top:0;width:930px;height:1080px}
+#datecard{position:absolute;left:0;top:96px;width:216px;height:240px;transform-origin:50% 0;perspective:900px}
+#datecard .pg{position:absolute;inset:0;border-radius:22px;background:var(--cream);box-shadow:0 20px 40px rgba(0,0,0,.45);overflow:hidden;transform-origin:50% 0}
+#datecard .hd{height:66px;padding-top:12px;background:linear-gradient(180deg,#ff4fd8,#8b3dff);display:flex;align-items:center;justify-content:center;color:#fff;font-size:46px}
+#datecard .day{height:128px;display:flex;align-items:center;justify-content:center;color:#1b0f2a;font-size:142px;line-height:1;padding-top:8px}
+#datecard .day.tba{font-size:96px;padding-top:14px}
+#datecard .wd{text-align:center;color:#7a5c94;font-size:26px;font-weight:700;letter-spacing:.18em}
+#datecard .rings{position:absolute;left:0;right:0;top:-10px;display:flex;justify-content:space-around;padding:0 46px}
+#datecard .rings i{width:16px;height:30px;border-radius:8px;background:#2b1b3d;box-shadow:inset 0 0 0 4px #4a3561}
+#where{position:absolute;left:256px;top:104px}
+#where .lbl{font-size:24px;font-weight:700;letter-spacing:.22em;color:var(--amber)}
+#where .cty{display:flex;align-items:center;gap:18px;margin-top:10px;font-size:68px;line-height:1}
+#where .cty img{height:46px;border-radius:6px;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+#where .studio{margin-top:14px;font-size:30px;font-weight:500;color:var(--muted)}
+#title{position:absolute;left:0;top:372px;width:930px;font-size:124px;line-height:.95;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+#title .w{display:inline-block;margin-right:.22em}
+#chips{position:absolute;left:0;top:760px;display:flex;gap:16px}
+.chip{height:58px;padding:0 26px;border-radius:999px;display:flex;align-items:center;font-size:26px;font-weight:700;letter-spacing:.14em}
+#style{background:var(--orange);color:#1b0f2a}
+#cnt{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
+#cnt b{color:var(--amber);margin-right:8px}
+
+/* calendar strip */
+#cal{position:absolute;left:150px;top:960px;width:1660px;height:96px}
+#cal .m{position:absolute;left:0;top:12px;font-size:62px;color:var(--amber);line-height:1}
+#cal .days{position:absolute;left:150px;top:0;right:0;height:96px}
+.d{position:absolute;top:10px;width:40px;height:70px;margin-left:-20px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,244,230,.45);font-weight:600}
+.d .wd{font-size:13px;letter-spacing:.06em}
+.d .n{font-size:22px;line-height:1.1}
+.d.rel{color:#fff}
+.d.rel::after{content:"";position:absolute;bottom:4px;width:7px;height:7px;border-radius:50%;background:var(--amber)}
+#track{position:absolute;left:0;right:0;top:34px;height:8px;border-radius:4px;background:rgba(255,255,255,.14)}
+#trackfill{position:absolute;left:0;top:0;height:100%;border-radius:4px;background:linear-gradient(90deg,#35d0ff,#ff4fd8)}
+.mo{position:absolute;top:54px;width:110px;margin-left:-55px;text-align:center;font-family:"Bebas";font-size:28px;letter-spacing:.06em;color:rgba(244,246,255,.4)}
+.mo.on{color:#fff}
+.mtick{position:absolute;top:28px;width:2px;height:20px;margin-left:-1px;background:rgba(255,255,255,.22)}
+.fd{position:absolute;top:31px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:#0a0f2a;box-shadow:inset 0 0 0 3px var(--amber)}
+.fd.on{background:var(--amber)}
+#calmark{position:absolute;top:22px;width:32px;height:32px;margin-left:-16px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px var(--orange),0 0 34px rgba(53,208,255,.9)}
+
+/* intro / outro */
+#intro .fan{position:absolute;left:960px;top:775px;width:0;height:0}
+#intro .card{position:absolute;border-radius:16px;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.6)}
+#intro .card img{width:100%;height:100%;object-fit:cover}
+#oct{position:absolute;left:0;right:0;top:20px;text-align:center;font-size:330px;line-height:1;filter:drop-shadow(0 12px 30px rgba(0,0,0,.6))}
+#oct .ch{display:inline-block;background:linear-gradient(180deg,#b8f4ff,#35d0ff 45%,#ff4fd8);-webkit-background-clip:text;background-clip:text;color:transparent}
+#sub1{position:absolute;left:0;right:0;top:340px;text-align:center;font-size:62px;letter-spacing:.32em;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.6)}
+#badge{position:absolute;left:50%;top:418px;margin-left:-160px;width:320px;height:74px;border-radius:999px;background:var(--cream);color:#1b0f2a;display:flex;align-items:center;justify-content:center;font-size:44px;box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.tile{position:absolute;width:150px;height:225px;border-radius:14px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.55),0 0 0 2px rgba(255,255,255,.1)}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile b{position:absolute;left:8px;bottom:8px;padding:2px 10px;border-radius:999px;background:var(--orange);color:#1b0f2a;font-family:"Bebas";font-size:17px;font-weight:400}
+#q1{position:absolute;left:0;right:0;top:748px;text-align:center;font-size:96px;line-height:1;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.6)}
+#q1 span{color:var(--amber)}
+#q2{position:absolute;left:0;right:0;top:856px;display:flex;justify-content:center;align-items:center;gap:16px;font-size:42px;font-weight:600}
+#q2 img{width:58px;height:58px}
+#sub{position:absolute;left:50%;top:936px;margin-left:-210px;width:420px;height:92px;border-radius:999px;background:#ff1f3d;display:flex;align-items:center;justify-content:center;gap:16px;font-size:56px;color:#fff;box-shadow:0 14px 40px rgba(255,31,61,.35)}
+#sub img{width:56px;height:56px}
+#cursor{position:absolute;left:0;top:0;width:66px;height:80px}
+
+#fade{background:#000;pointer-events:none}
+#bar{position:fixed;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.08);cursor:pointer}
+#bar i{display:block;height:100%;width:0;background:#35d0ff}
+#hint{position:fixed;right:14px;bottom:12px;font:12px/1 ui-monospace,Menlo,monospace;color:rgba(255,255,255,.4)}
+.render #bar,.render #hint{display:none}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="world" class="L">
+    <div id="bgs" class="L"></div>
+    <div id="shade" class="L"></div>
+    <div id="glow" class="L"></div>
+    <canvas id="leaves" class="L" width="1920" height="1080"></canvas>
+    <div id="posters" class="L"></div>
+    <div id="info">
+      <div id="datecard"><div class="pg"><div class="hd bebas"></div><div class="day bebas"></div><div class="wd"></div></div><div class="rings"><i></i><i></i><i></i></div></div>
+      <div id="where"><div class="lbl">IN CINEMAS</div><div class="cty bebas"><img id="flag"><span></span></div><div class="studio"></div></div>
+      <div id="title" class="bebas"></div>
+      <div id="chips"><div class="chip" id="style"></div><div class="chip" id="cnt"><b></b><span id="cntof"></span></div></div>
+    </div>
+    <div id="cal"><div class="m bebas">2027</div><div class="days" id="days"><div id="track"><div id="trackfill"></div></div><div id="calmark"></div></div></div>
+    <div id="vig" class="L"></div>
+    <div id="intro" class="L"></div>
+    <div id="outro" class="L"></div>
+  </div>
+  <div id="fade" class="L"></div>
+</div>
+<div id="bar"><i></i></div>
+<div id="hint">click ▶ sound · space · ← →</div>
+
+<script>
+"use strict";
+const BPM = 120, BEAT = 60 / BPM, BAR = 4 * BEAT, PER = 2 * BAR;   // two bars per film
+const INTRO = 2 * BAR, OUTRO_BARS = 3;
+const Q = new URLSearchParams(location.search);
+const RENDER = Q.has("render");
+if (RENDER) document.documentElement.classList.add("render");
+
+const clamp = (x, a = 0, b = 1) => x < a ? a : x > b ? b : x;
+const lerp = (a, b, x) => a + (b - a) * x;
+const E = {
+  lin: x => x, outCubic: x => 1 - (1 - x) ** 3, inCubic: x => x ** 3,
+  inOutCubic: x => x < .5 ? 4 * x ** 3 : 1 - (-2 * x + 2) ** 3 / 2,
+  inOutQuart: x => x < .5 ? 8 * x ** 4 : 1 - (-2 * x + 2) ** 4 / 2,
+  outExpo: x => x >= 1 ? 1 : 1 - 2 ** (-10 * x),
+  outBack: x => { const c = 1.7; return 1 + (c + 1) * (x - 1) ** 3 + c * (x - 1) ** 2; }
+};
+const P = (t, a, d, e = E.outCubic) => e(clamp((t - a) / d));
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let x = Math.imul(seed ^ seed >>> 15, 1 | seed); x = x + Math.imul(x ^ x >>> 7, 61 | x) ^ x; return ((x ^ x >>> 14) >>> 0) / 4294967296; }; }
+const $ = id => document.getElementById(id);
+const tf = (el, v) => { el.style.transform = v; };
+const show = (el, on) => { const d = on ? "" : "none"; if (el.style.display !== d) el.style.display = d; return on; };
+const WEEKDAYS = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+const YEAR = 2027;
+const MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+const weekday = f => new Date(Date.UTC(YEAR, f.month - 1, f.day)).getUTCDay();
+const doy = (m, d) => (Date.UTC(YEAR, m - 1, d) - Date.UTC(YEAR, 0, 1)) / 864e5;
+const TBA_X = 1462;
+const yx = n => n === null ? TBA_X : n / 364 * 1380;
+
+let F = [], DUR = 0, OUTRO = 0;
+const bgEls = [];
+
+function build() {
+  F.forEach((f, i) => { f.i = i; f.t0 = INTRO + i * PER; f.prev = F[i - 1] || null; });
+  OUTRO = INTRO + F.length * PER; DUR = OUTRO + OUTRO_BARS * BAR;
+  $("cntof").textContent = `/ ${F.length}`;
+
+  F.forEach(f => {
+    const bg = document.createElement("img");
+    bg.className = "bgimg"; bg.src = `posters/bg/${f.id}.jpg`; bg.style.display = "none";
+    $("bgs").appendChild(bg); f.bg = bg;
+    const p = document.createElement("div");
+    p.className = "poster"; p.style.width = 860 * f.w / f.h + "px"; p.style.display = "none";
+    p.innerHTML = `<img src="posters/hd/${f.id}.jpg"><div class="sheen"></div>`;
+    $("posters").appendChild(p); f.el = p; f.sheen = p.querySelector(".sheen");
+  });
+
+  // year strip: month ticks + labels, one dot per film
+  const days = $("days");
+  for (let m = 1; m <= 12; m++) {
+    days.insertAdjacentHTML("beforeend", `<div class="mtick" style="left:${yx(doy(m, 1))}px"></div><div class="mo" style="left:${yx(doy(m, 15))}px">${MON[m - 1]}</div>`);
+  }
+  days.insertAdjacentHTML("beforeend", `<div class="mtick" style="left:${yx(364)}px"></div><div class="mo" id="tbalbl" style="left:${TBA_X}px">TBA</div>`);
+  F.forEach(f => {
+    f.doy = f.month ? doy(f.month, f.day) : null;
+    const d = document.createElement("div");
+    d.className = "fd"; d.style.left = yx(f.doy) + "px";
+    days.insertBefore(d, $("calmark")); f.dot = d;
+  });
+  monthEls = [...days.querySelectorAll(".mo")];   // 12 months + TBA
+
+  // intro: fan of posters + title
+  const picks = ["iceage", "gatto", "spiderverse", "shrek5", "bluey", "simpsons", "frozen3"].map(id => F.findIndex(f => f.id === id));
+  $("intro").innerHTML = `<div class="fan"></div><div id="oct" class="bebas"></div><div id="sub1" class="bebas">ANIMATED MOVIES COMING</div><div id="badge" class="bebas">${F.length} NEW FILMS</div>`;
+  introCards = picks.map((fi, k) => {
+    const f = F[fi], h = 390, w = h * f.w / f.h;
+    const c = document.createElement("div");
+    c.className = "card"; c.style.width = w + "px"; c.style.height = h + "px"; c.style.left = -w / 2 + "px"; c.style.top = -h / 2 + "px";
+    c.innerHTML = `<img src="posters/hd/${f.id}.jpg">`;
+    $("intro").querySelector(".fan").appendChild(c);
+    return { el: c, k, n: picks.length };
+  });
+  octChars = [..."2027"].map(ch => `<span class="ch">${ch === " " ? "&nbsp;" : ch}</span>`);
+  $("oct").innerHTML = octChars.join("");
+  octChars = [...$("oct").children];
+
+  // outro grid
+  $("outro").innerHTML = `<div id="q1" class="bebas">WHICH ONE ARE <span>YOU</span> WAITING FOR?</div><div id="q2">Tell us in the comments <img src="emoji/backhand_index_pointing_down.png"></div>` +
+    `<div id="sub" class="bebas"><span id="subt">SUBSCRIBE</span><img id="bell" src="emoji/bell.png"></div>` +
+    `<svg id="cursor" viewBox="0 0 70 84"><path d="M6 4 L6 66 L22 52 L33 78 L46 72 L35 47 L56 47 Z" fill="#fff" stroke="#1b0f2a" stroke-width="6" stroke-linejoin="round"/></svg>`;
+  const nr = Math.min(4, Math.ceil(F.length / 11)), cols = Math.ceil(F.length / nr);
+  const tw = Math.min(150, Math.floor((1800 - (cols - 1) * 10) / cols)), th = tw * 1.5;
+  const rows = Array.from({ length: nr }, (_, r) => F.slice(r * cols, (r + 1) * cols));
+  rows.forEach((row, r) => row.forEach((f, j) => {
+    const t = document.createElement("div");
+    t.className = "tile"; t.style.width = tw + "px"; t.style.height = th + "px";
+    t.style.left = 960 - (row.length * (tw + 10) - 10) / 2 + j * (tw + 10) + "px"; t.style.top = 26 + r * (th + 10) + "px";
+    t.innerHTML = `<img src="posters/hd/${f.id}.jpg"><b>${f.month ? MON[f.month - 1] + " " + f.day : "TBA"}</b>`;
+    $("outro").insertBefore(t, $("q1"));
+    tiles.push({ el: t, k: f.i });
+  }));
+}
+let introCards = [], octChars = [], tiles = [], monthEls = [];
+
+/* drifting sparkles */
+const lctx = $("leaves").getContext("2d");
+const LEAVES = (() => { const r = rng(10); return Array.from({ length: 70 }, () => ({ x: r() * 1920, y: r() * 1240, s: 5 + r() * 13, v: 10 + r() * 34, ph: r() * 6.28, c: ["#35d0ff", "#ff4fd8", "#ffc94a", "#ffffff"][Math.floor(r() * 4)], a: .3 + r() * .6, star: r() < .45 })); })();
+function sparkle(g, s) {
+  g.beginPath();
+  for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4, rr = i % 2 ? s * .22 : s; g.lineTo(Math.cos(a) * rr, Math.sin(a) * rr); }
+  g.closePath(); g.fill();
+}
+function drawLeaves(t) {
+  lctx.clearRect(0, 0, 1920, 1080);
+  for (const l of LEAVES) {
+    const y = ((l.y - l.v * t) % 1240 + 1240) % 1240 - 80, x = l.x + Math.sin(t * .5 + l.ph) * 22;
+    const tw = .5 + .5 * Math.sin(t * 3 + l.ph * 5);
+    lctx.save(); lctx.translate(x, y); lctx.rotate(t * .3 + l.ph);
+    lctx.globalAlpha = l.a * (.35 + .65 * tw); lctx.fillStyle = l.c;
+    if (l.star) sparkle(lctx, l.s * (.6 + .4 * tw)); else { lctx.beginPath(); lctx.arc(0, 0, l.s * .22, 0, 6.283); lctx.fill(); }
+    lctx.restore();
+  }
+}
+
+/* ───────────── frame ───────────── */
+let lastShown = new Set();
+function render(t) {
+  const shown = new Set();
+  const fi = t < INTRO ? -1 : t >= OUTRO ? F.length : Math.floor((t - INTRO) / PER);
+  const cur = fi >= 0 && fi < F.length ? F[fi] : null;
+  const lt = cur ? t - cur.t0 : 0;
+  drawLeaves(t);
+
+  // backdrop crossfade + slow push-in
+  const showBg = (f, op) => { shown.add(f.bg); f.bg.style.opacity = op; tf(f.bg, `scale(${1 + (t - f.t0) * .012})`); };
+  if (cur) {
+    showBg(cur, P(lt, 0, .6, E.inOutCubic));
+    if (cur.prev && lt < .6) showBg(cur.prev, 1);
+  } else if (fi === F.length && t - OUTRO < .8) showBg(F[F.length - 1], 1);
+
+  // posters
+  const drawPoster = (f, l, exiting) => {
+    shown.add(f.el);
+    const k = P(l, 0, .7, E.outBack), kx = E.outExpo(clamp(l / .55));
+    const ex = exiting;
+    const sway = Math.sin(t * 1.1 + f.i) * 2.5;
+    const pulse = l > .4 ? .012 * Math.exp(-((l % BEAT)) * 9) : 0;
+    tf(f.el, `translateX(${(1 - kx) * 900 - ex * 1100}px) translateY(${-ex * 40}px) rotateY(${lerp(-55, -7 + sway, E.outCubic(clamp(l / .7))) + ex * 60}deg) rotateZ(${(1 - kx) * 6 - ex * 8}deg) scale(${(.82 + .18 * k) * (1 - ex * .25) * (1 + pulse)})`);
+    f.el.style.opacity = clamp(kx * 2) * (1 - ex);
+    const sh = clamp((l - .35) / .9);
+    f.sheen.style.opacity = sh > 0 && sh < 1 ? 1 : 0;
+    tf(f.sheen, `translateX(${lerp(-90, 90, E.inOutCubic(sh))}%)`);
+  };
+  if (cur) {
+    drawPoster(cur, lt, 0);
+    if (cur.prev && lt < .5) drawPoster(cur.prev, PER + lt, P(lt, 0, .45, E.inCubic));
+  } else if (fi === F.length && t - OUTRO < .6) drawPoster(F[F.length - 1], PER + (t - OUTRO), P(t - OUTRO, 0, .5, E.inCubic));
+
+  // info column
+  const infoOn = !!cur || (fi === F.length && t - OUTRO < .6);
+  show($("info"), infoOn); show($("cal"), t >= INTRO - .4 && t < OUTRO + .6);
+  const inf = cur || (fi === F.length ? F[F.length - 1] : null);
+  if (inf && !cur) {
+    $("info").style.opacity = 0;
+  }
+  if (cur) {
+    const dateChanged = !cur.prev || cur.prev.day !== cur.day || cur.prev.month !== cur.month;
+    const tba = !cur.month;
+    const pg = $("datecard").querySelector(".pg");
+    if ($("datecard").dataset.d != cur.day || $("datecard").dataset.i != cur.i) {
+      $("datecard").dataset.d = cur.day; $("datecard").dataset.i = cur.i;
+      const dayEl = $("datecard").querySelector(".day");
+      dayEl.textContent = tba ? YEAR : cur.day; dayEl.classList.toggle("tba", tba);
+      $("datecard").querySelector(".hd").textContent = tba ? "COMING" : `${MON[cur.month - 1]} ${YEAR}`;
+      $("datecard").querySelector(".wd").textContent = tba ? "DATE TBA" : WEEKDAYS[weekday(cur)];
+      $("where").querySelector("span").textContent = cur.country.toUpperCase();
+      $("where").querySelector(".lbl").textContent = tba ? "COMING FROM" : cur.cc ? "IN CINEMAS" : "STREAMING ON";
+      show($("flag"), !!cur.cc);
+      if (cur.cc) $("flag").src = `flags/${cur.cc}.png`;
+      $("where").querySelector(".studio").textContent = cur.studio;
+      $("style").textContent = cur.style.toUpperCase();
+      $("cnt").firstElementChild.textContent = String(cur.i + 1).padStart(2, "0");
+      $("title").innerHTML = cur.title.toUpperCase().split(" ").map(w => `<span class="w">${w}</span>`).join("");
+      $("title").style.fontSize = cur.fit + "px";
+      $("chips").style.top = 372 + cur.titleH + 40 + "px";
+    }
+    // date card: flips to a new page when the date changes, else a bump
+    if (dateChanged) {
+      const fk = P(lt, .1, .55, E.outBack);
+      tf(pg, `rotateX(${(1 - fk) * -100}deg)`); pg.style.opacity = clamp(fk * 3);
+    } else {
+      tf(pg, `scale(${1 + .08 * Math.exp(-lt * 6) * Math.sin(lt * 18)})`); pg.style.opacity = 1;
+    }
+    const wk = P(lt, .45, .6, E.outExpo);
+    $("where").style.opacity = wk; tf($("where"), `translateX(${(1 - wk) * 80}px)`);
+    tf($("flag"), `scale(${Math.max(0, P(lt, .5, .5, E.outBack))})`);
+    [...$("title").children].forEach((w, i) => {
+      const k = P(lt, .2 + i * .07, .6, E.outExpo);
+      w.style.opacity = k; tf(w, `translateY(${(1 - k) * 70}px)`);
+    });
+    const ck = P(lt, .75, .5, E.outBack), ck2 = P(lt, .85, .5, E.outBack);
+    tf($("style"), `scale(${Math.max(0, ck)})`); tf($("cnt"), `scale(${Math.max(0, ck2)})`);
+    // exit everything on the last half-beat before the next film
+    const out = P(lt, PER - .22, .22, E.inCubic);
+    $("info").style.opacity = 1 - out;
+    // year strip marker
+    const from = cur.prev ? cur.prev.doy : 0, mk = P(lt, .1, .6, E.inOutCubic);
+    const mx = lerp(yx(from), yx(cur.doy), mk);
+    $("calmark").style.left = mx + "px"; $("trackfill").style.width = mx + "px";
+    monthEls.forEach((el, i) => el.classList.toggle("on", (tba ? i === 12 : i === cur.month - 1) && mk > .5));
+    F.forEach(f => f.dot.classList.toggle("on", f.i < cur.i || (f.i === cur.i && mk > .9)));
+  } else if (t < INTRO) {
+    $("calmark").style.left = "0px"; $("trackfill").style.width = "0px";
+  }
+  const ck = P(t, INTRO - .4, .6, E.outExpo) * (1 - P(t, OUTRO, .5, E.inCubic));
+  $("cal").style.opacity = ck; tf($("cal"), `translateY(${(1 - ck) * 120}px)`);
+
+  intro(t); outro(t);
+  for (const el of lastShown) if (!shown.has(el)) show(el, false);
+  for (const el of shown) show(el, true);
+  lastShown = shown;
+  $("fade").style.opacity = Math.max(1 - P(t, 0, .3), P(t, DUR - .8, .8, E.inOutCubic));
+}
+
+function intro(t) {
+  if (!show($("intro"), t < INTRO + .6)) return;
+  const out = P(t, INTRO - .45, .5, E.inCubic);
+  introCards.forEach(c => {
+    const k = P(t, .1 + c.k * .09, .7, E.outBack), u = c.k - (c.n - 1) / 2;
+    const ang = u * 11 * k, x = u * 150 * k, y = Math.abs(u) * 22 * k;
+    tf(c.el, `translate(${x + u * out * 300}px,${y + 120 * (1 - k) + out * 500}px) rotate(${ang}deg) scale(${(.6 + .4 * clamp(k)) * (1 + Math.sin(t * 2 + c.k) * .01)})`);
+    c.el.style.opacity = clamp(k * 3) * (1 - out);
+  });
+  octChars.forEach((ch, i) => {
+    const k = P(t, .55 + i * .05, .55, E.outBack);
+    ch.style.opacity = clamp(k * 2) * (1 - out); tf(ch, `translateY(${(1 - k) * 120 - out * 80}px) scale(${Math.max(0, k)})`);
+  });
+  const s = P(t, 1.5, .6, E.outExpo);
+  $("sub1").style.opacity = s * (1 - out); $("sub1").style.letterSpacing = `${.6 - .28 * s}em`;
+  const b = P(t, 2.5, .5, E.outBack);
+  tf($("badge"), `scale(${Math.max(0, b) * (1 - out)})`);
+  $("intro").style.opacity = 1 - P(t, INTRO, .4);
+}
+
+function outro(t) {
+  const l = t - OUTRO;
+  if (!show($("outro"), l >= 0)) return;
+  $("outro").style.background = `rgba(10,15,42,${(.85 * P(l, 0, .5)).toFixed(3)})`;
+  tiles.forEach(tl => {
+    const k = P(l, .25 + tl.k * .028, .5, E.outBack);
+    tf(tl.el, `translateY(${(1 - clamp(k)) * 60}px) scale(${Math.max(0, k)}) rotate(${Math.sin(t * 1.6 + tl.k) * 1.2}deg)`);
+  });
+  const k1 = P(l, 1.2, .6, E.outBack);
+  tf($("q1"), `scale(${Math.max(0, k1)})`);
+  const k2 = P(l, 1.7, .5, E.outExpo);
+  $("q2").style.opacity = k2; tf($("q2"), `translateY(${(1 - k2) * 40}px)`);
+  tf($("q2").querySelector("img"), `translateY(${Math.abs(Math.sin(t * 6)) * 10}px)`);
+  const ks = P(l, 2.2, .5, E.outBack), click = l > 3.3, press = Math.max(0, 1 - Math.abs(l - 3.3) / .12);
+  tf($("sub"), `scale(${Math.max(0, ks) * (1 - press * .1)})`);
+  $("sub").style.background = click ? "#7d7489" : "#ff1f3d";
+  $("subt").textContent = click ? "SUBSCRIBED" : "SUBSCRIBE";
+  tf($("bell"), click ? `rotate(${Math.sin((l - 3.3) * 30) * 28 * Math.exp(-(l - 3.3) * 3)}deg)` : "none");
+  const ck = P(l, 2.7, .55, E.inOutCubic);
+  tf($("cursor"), `translate(${lerp(1500, 1070, ck)}px,${lerp(1120, 970, ck)}px) scale(${1 - press * .2})`);
+  $("cursor").style.opacity = l > 2.65 && l < 4.6 ? 1 : 0;
+}
+
+/* fit titles to at most two lines */
+function measure() {
+  const el = $("title"); show($("info"), true);
+  F.forEach(f => {
+    el.innerHTML = f.title.toUpperCase().split(" ").map(w => `<span class="w">${w}</span>`).join("");
+    let size = 132;
+    el.style.fontSize = size + "px";
+    while (size > 60 && el.offsetHeight > size * .95 * 2 + 4) { size -= 4; el.style.fontSize = size + "px"; }
+    f.fit = size; f.titleH = el.offsetHeight;
+  });
+}
+
+/* ───────────── boot ───────────── */
+let ready;
+window.__ready = new Promise(r => { ready = r; });
+window.__seek = t => render(t);
+function fit() { const s = Math.min(innerWidth / 1920, innerHeight / 1080); tf($("stage"), `scale(${s})`); }
+addEventListener("resize", fit); fit();
+(async () => {
+  F = await (await fetch("films.json")).json();
+  build();
+  await Promise.all([document.fonts.load('40px "Bebas"'), document.fonts.load('600 40px "Outfit"')]);
+  await Promise.all([...document.images].map(im => im.decode().catch(() => {})));
+  measure();
+  window.__duration = DUR;
+  render(0); ready();
+  if (RENDER) return;
+  if (Q.has("t")) { render(+Q.get("t")); return; }
+  const snd = new Audio("out/soundtrack.mp3"); snd.preload = "auto";
+  let start = performance.now(), paused = false, pt = 0, sound = false;
+  const now = () => paused ? pt : sound && !snd.paused ? snd.currentTime % DUR : ((performance.now() - start) / 1000) % DUR;
+  const seek = t => { start = performance.now() - t * 1000; pt = t; if (sound) snd.currentTime = t; };
+  const enableSound = () => { if (!sound) { sound = true; snd.currentTime = now(); snd.play().catch(() => { sound = false; }); } };
+  snd.addEventListener("ended", () => { if (!paused) { snd.currentTime = 0; snd.play(); } });
+  addEventListener("keydown", e => {
+    if (e.code === "Space") { e.preventDefault(); if (paused) { seek(pt); paused = false; if (sound) snd.play(); else enableSound(); } else { pt = now(); paused = true; snd.pause(); } }
+    if (e.code === "ArrowRight") seek(Math.min(DUR - .01, now() + 4));
+    if (e.code === "ArrowLeft") seek(Math.max(0, now() - 4));
+  });
+  $("bar").addEventListener("click", e => { e.stopPropagation(); seek(e.clientX / innerWidth * DUR); });
+  $("stage").addEventListener("click", () => { paused = false; seek(0); enableSound(); if (sound) snd.play(); });
+  (function loop() { const t = now(); render(t); $("bar").firstChild.style.width = (t / DUR * 100) + "%"; requestAnimationFrame(loop); })();
+})();
+</script>
+</body>
+</html>
